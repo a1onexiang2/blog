@@ -1,16 +1,16 @@
 # Index
 
 ## Java
-[Object](docs/java/Object.md)
-[Feature](docs/java/Feature.md)
+- [Object](docs/java/Object.md)
+- [Feature](docs/java/Feature.md)
 
 ## Android
-[Activity](docs/android/Activity.md)
-[Service](docs/android/Service.md)
-[BroadcastReceiver](docs/android/BroadcastReceiver.md)
-[ContentProvider](docs/android/ContentProvider.md)
-[Fragment](docs/android/Fragment.md)
-[View](docs/android/View.md)
+- [Activity](docs/android/Activity.md)
+- [Service](docs/android/Service.md)
+- [BroadcastReceiver](docs/android/BroadcastReceiver.md)
+- [ContentProvider](docs/android/ContentProvider.md)
+- [Fragment](docs/android/Fragment.md)
+- [View](docs/android/View.md)
 
 ### HR
 个人优点、缺点、特长
