@@ -231,6 +231,57 @@ Q：有什么问题想要问我？
 Q：使用那些版本控制工具？Git 和 SVN 的区别？
 Q：了解 Git 工具吗？用过哪些命令？解决冲突时 git merge 和 git rebase 的区别？
 
+Handler 机制和底层实现
+Handler、Thread 和 HandlerThread 的差别
+handler 发消息给子线程，looper 怎么启动？
+关于 Handler，在任何地方 new Handler 都是什么线程下?
+ThreadLocal 原理，实现及如何保证 Local 属性？
+请解释下在单线程模型中 Message、Handler、Message Queue、Looper 之间的关系
+Android 代码中实现 WAP 方式联网
+AsyncTask 机制
+AsyncTask 原理及不足
+如何取消 AsyncTask？
+ANR 产生的原因是什么？
+ANR 定位和修正
+oom 是什么？
+什么情况导致 oom？
+有什么解决方法可以避免 OOM？
+Oom 是否可以 try catch？为什么？
+内存泄漏是什么？
+什么情况导致内存泄漏？
+如何防止线程的内存泄漏？
+内存泄露场的解决方法
+内存泄漏和内存溢出区别？
+LruCache 默认缓存大小
+如何通过广播拦截和 abort 一条短信？
+广播是否可以请求网络？
+广播引起 anr 的时间限制是多少？
+计算一个 view 的嵌套层级
+Activity 栈
+Android 线程有没有上限？
+线程池有没有上限？
+ListView 重用的是什么？
+
+垃圾回收机制。。。(主要从下面几方面解答 GC 原理、最好画图解释一下年轻代（Eden 区和 Survival 区）、年老代、比例分配及为啥要这样分代回收)
+对象分配问题，堆栈里的问题，详细的会问道方法区、堆、程序计数器、本地方法栈、虚拟机栈，问题入口从 String a,new String("") 开始
+关键字，private protected public static final 组合着问
+Object 类里面有哪几种方法，作用
+equals 和 hashCode 方法，重写 equals 的原则 ()
+向上转型
+Java 引用类型 (强引用，软引用，弱引用，虚引用)
+线程相关的，主要是 volitate，synchorized，wait()，notify()，notifyAll()，join()
+Exception 和 Error
+反射的用途
+HashMap 实现原理 (数组 + 链表)，查找数据的时间复杂度
+List 有哪些子类，各有什么区别
+NIO 相关，缓冲区、通道、selector。。。(不熟，面了这么多，挂在这里。其实主要是表现在同步阻塞和异步，传输方式不同。标准 IO 无法实现非阻塞模式、文件锁、读选择、分散聚集等)
+内存泄露，举个例子
+OOM 是怎么出现的，有哪几块 JVM 区域会产生 OOM，如何解决 (对于该问题，建议去《Java 特种兵》的 3.6 章)
+Java 里面的观察者模式实现
+单例实现 (我一般用 enum 写，不容易被挑毛病)
+用 Java 模拟一个栈，并能够做到扩容，并且能有同步锁。（用数组实现）
+Java 泛型机制，泛型机制的优点，以及类型变量
+
 
 ### JAVA
 JAVA 基础
