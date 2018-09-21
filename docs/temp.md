@@ -231,5 +231,30 @@ Q：有什么问题想要问我？
 Q：使用那些版本控制工具？Git 和 SVN 的区别？
 Q：了解 Git 工具吗？用过哪些命令？解决冲突时 git merge 和 git rebase 的区别？
 
+
+### JAVA
+JAVA 基础
+JAVA 深入
+JVM
+数据结构
+多线程基础
+
+### Android
+Android 基础
+Android 深入
+实际开发中遇到的问题
+混合开发
+图片处理
+网络和安全
+数据库
+算法
+热更新、增量更新
+插件化、模块化
+架构与设计模式
+性能优化
+多进程与多线程
+framework
+
+
 点击此处见 Android 学习笔记清单：
 https://www.jianshu.com/p/c44d7a106302

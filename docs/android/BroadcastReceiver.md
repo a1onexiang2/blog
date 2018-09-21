@@ -5,7 +5,6 @@
 ## Broadcast Receiver
 
 #### 广播有几种形式？什么特点？
-
 - **普通广播**
 Android 3.1 以上版本可以 通过 `Intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)` 来发送自定义广播给未启动的 App。
 - **系统广播**
@@ -22,7 +21,6 @@ Android 5.0 以上版本已取消该类型广播。
     3. 指定 Intent 的 packageName
 
 #### 广播的两种注册形式？区别在哪？
-
 静态注册、动态注册。
 动态注册广播是观察者模式，跟随注册者的生命周期，需要反注册，不然会内存泄漏。
 在接收普通广播时，动态注册的优先级高于静态注册。

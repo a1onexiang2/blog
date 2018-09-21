@@ -66,51 +66,51 @@ ApplicationContext 启动 standard/singleTop/singleTask Activity 会报错，因
 
 - 程序进程（客户端）
     Activity.startActivity()
-    Activity.startActivityForResult()
-    ContextImpl.execStartActivity()
-    Instrumentation.startActivity()
-    ActivityManagerProxy.startActivity()
-- 系统进程（服务端）
+        Activity.startActivityForResult()
+        ContextImpl.execStartActivity()
+        Instrumentation.startActivity()
+        ActivityManagerProxy.startActivity()
+    - 系统进程（服务端）
     1. 预启动
-    ActivityManagerService.startActivity()
-    ActivityStack.startActivityMayWait()
-    ActivityStack.startActivityLocked()
-    ActivityStack.startActivityUncheckedLocked()
-    ActivityStack.startActivityLocked()（重载）
-    ActivityStack.resumeTopActivityLocked()
-    1. 暂停
-    ActivityStack.startPausingLocked()
-    ApplicationThreadProxy.schedulePauseActivity()
-    ActivityThread.handlePauseActivity()
-    ActivityThread.performPauseActivity()
-    ActivityManagerProxy.activityPaused()
-    completePausedLocked()
-    1. 启动应用程序进程
-    第二次进入 ActivityStack.resumeTopActivityLocked()
-    ActivityStack.startSpecificActivityLocked()
-    startProcessLocked()
-    startProcessLocked()（重载）
-    Process.start()
-    1. 加载应用程序 Activity
-    ActivityThread.main()
-    ActivityThread.attach()
-    ActivityManagerService.attachApplication()
-    ApplicationThread.bindApplication()
-    ActivityThread.handleBindApplication()
-    1. 显示 Activity
-    ActivityStack.realStartActivityLocked()
-    ApplicationThread.scheduleLaunchActivity()
-    ActivityThead.handleLaunchActivity()
-    ActivityThread.performLaunchActivity()
-    ActivityThread.handleResumeActivity()
-    ActivityThread.performResumeActivity()
-    Activity.performResume()
-    ActivityStack.completeResumeLocked()
-    1. Activity Idle 状态的处理
-    2. 停止源 Activity
-    ActivityStack.stopActivityLocked()
-    ApplicationThreadProxy.scheduleStopActivity()
-    ActivityThread.handleStopActivity()
-    ActivityThread.performStopActivityInner()
+        ActivityManagerService.startActivity()
+        ActivityStack.startActivityMayWait()
+        ActivityStack.startActivityLocked()
+        ActivityStack.startActivityUncheckedLocked()
+        ActivityStack.startActivityLocked()（重载）
+        ActivityStack.resumeTopActivityLocked()
+        1. 暂停
+        ActivityStack.startPausingLocked()
+        ApplicationThreadProxy.schedulePauseActivity()
+        ActivityThread.handlePauseActivity()
+        ActivityThread.performPauseActivity()
+        ActivityManagerProxy.activityPaused()
+        completePausedLocked()
+        1. 启动应用程序进程
+        第二次进入 ActivityStack.resumeTopActivityLocked()
+        ActivityStack.startSpecificActivityLocked()
+        startProcessLocked()
+        startProcessLocked()（重载）
+        Process.start()
+        1. 加载应用程序 Activity
+        ActivityThread.main()
+        ActivityThread.attach()
+        ActivityManagerService.attachApplication()
+        ApplicationThread.bindApplication()
+        ActivityThread.handleBindApplication()
+        1. 显示 Activity
+        ActivityStack.realStartActivityLocked()
+        ApplicationThread.scheduleLaunchActivity()
+        ActivityThead.handleLaunchActivity()
+        ActivityThread.performLaunchActivity()
+        ActivityThread.handleResumeActivity()
+        ActivityThread.performResumeActivity()
+        Activity.performResume()
+        ActivityStack.completeResumeLocked()
+        1. Activity Idle 状态的处理
+        2. 停止源 Activity
+        ActivityStack.stopActivityLocked()
+        ApplicationThreadProxy.scheduleStopActivity()
+        ActivityThread.handleStopActivity()
+        ActivityThread.performStopActivityInner()
 
 [Home](../../README.md)
