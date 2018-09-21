@@ -10,7 +10,7 @@
 [BroadcastReceiver](docs/android/BroadcastReceiver.md)
 [ContentProvider](docs/android/ContentProvider.md)
 [Fragment](docs/android/Fragment.md)
-[View](docs/android/View.md)
+[View](docs/android/View.md)
 
 ### HR
 个人优点、缺点、特长

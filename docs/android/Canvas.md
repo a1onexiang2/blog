@@ -41,7 +41,7 @@ Shader 有五个子类，分别是：BitmapShader、LinearGradient、RadialGradi
 
 #### MaskFilter
 
-通过调用 `Paint.setMaskFilter(maskFilter)` 方法来为 paint 设置。在 GPU 硬件加速模式下，该方法不被 GPU 支持，所以为了能够正常使用，需要将我们要绘制的 View 使用软件渲染模式。MaskFilter 有两个子类，分别是：BlurMaskFilter、EmbossMaskFilter。
+通过调用 `Paint.setMaskFilter(maskFilter)` 方法来为 paint 设置。在 GPU 硬件加速模式下，该方法不被 GPU 支持，所以为了能够正常使用，需要将我们要绘制的 View 使用软件渲染模式。MaskFilter 有两个子类，分别是：BlurMaskFilter、EmbossMaskFilter。
 
 - **BlurMaskFilter**
 用于创建模糊阴影效果。
