@@ -6,12 +6,12 @@
 - [Annotation](docs/java/Annotation.md)
 - [Throwalbe](docs/java/Throwable.md)
 - [Reflection](docs/java/Reflection.md)
-- [Generic]
+- [Generic](docs/java/Generic.md)
 - [I/O](docs/java/IO.md)
 - [Design Patterns]
 - [Data Structure]
 - [Algorithm]
-- [GC]
+- [GC](docs/java/GC.md)
 - [JVM]
 
 ## Android
@@ -25,18 +25,17 @@
 - [Animation](docs/android/Animation.md)
 - [Process](docs/android/Process.md)
 - [Thread](docs/android/Thread.md)
-- [Storage]
+- [Storage](docs/android/Storage.md)
 - [Image]图片处理
 - [Network]网络和安全
 - [RxJava]
 - [AOP]
-- [List]
+- [ListView]
 - [VideoPlayer]
 - [Database]数据库
 - [Hotfix]热更新、增量更新
 - [Module & Plugin]插件化、模块化
-- [Memory Leak]
-- [OOM]
+- [Memory](docs/android/Memory.md)
 - [ANR]
 - [Dalvik]
 - [ART]
