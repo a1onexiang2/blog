@@ -8,10 +8,8 @@
 Android 底层调用了 Linux 的线程来执行，主要为了兼容性和效率。
 线程有 Android 自己定义的优先级，MIN_PRIORITY = 1，NORM_PRIORITY = 5，MAX_PRIORITY = 10，主线程优先级为 NORM_PRIORITY。
 线程同时有 Linux 定义的优先级，-20 是最高的优先级，19 是最低的优先级。***暂未找到对应关系。***
-调用 `new Thread()` 建立的线程，优先级直接继承实例化它的线程的优先级，故主线程直接 `new Thread()` 时优先级和主线程一样。
 后台线程过多也会导致主线程卡顿，线程调度需要消耗资源。
 线程数上限与 Linux 一样，为 15193。
-`interrupt()` 方法不能中断正在运行过程中的线程，只能中断阻塞过程中的线程。
 
 #### 锁的分类
 - **可重入锁**
@@ -98,10 +96,23 @@ Looper 是一个消息泵，不断地遍历 MessageQueue，从中读取 Message 
 `new Handler()` 会直接在调用的线程建立 Handler。若要指定线程，需要传入指定线程的 Looper，通过 `Looper.myLooper()` 来获取。
 Thread 的构造函数中调用 `Looper.myLooper()` 只会得到主线程的 Looper，因为此时线程还未构建好。
 
+#### Thread
+调用 `new Thread()` 建立的线程，优先级直接继承实例化它的线程的优先级，故主线程直接 `new Thread()` 时优先级和主线程一样。
+`interrupt()` 方法不能中断正在运行过程中的线程，只能中断阻塞过程中的线程。
+匿名内部类有内存泄漏的风险。
+
 #### AsyncTask
 AsyncTask 是一个轻量级的异步任务类。每个 AsyncTask 只能运行一次，无论正常完成、被取消或中断。Linux 优先级是 Process.THREAD_PRIORITY_BACKGROUND = 10。
 AsyncTask 内部有一个线程池，核心线程池大小是 `Math.max(2, Math.min(CPU_COUNT - 1, 4))`，最大线程池大小是 `CPU_COUNT * 2 + 1`。
-`doInBackground()` 方法运行在工作线程中，`onPreExecute()`、`onPostExecute()` 方法运行在主线程中。通过 Handler 来通讯
+`doInBackground()` 方法运行在工作线程中，`onPreExecute()`、`onPostExecute()` 方法运行在主线程中。通过 Handler 来通讯。
+串行执行，匿名内部类有内存泄漏的风险。
+
+#### HandlerThread
+HandlerThread 继承自 Thread，封装了 Handler 与 Looper的逻辑。通过调用 `getThreadHandler()` 方法可以获得 Handler 并直接使用。
+默认优先级是 THREAD_PRIORITY_DEFAULT，串行执行，不退出的情况下一直存在。
+
+#### IntentService
+IntentService 继承自 Service，封装了 HandlerThread 的逻辑。可以直接执行一些异步任务。
 
 #### ExecutorService
 线程池接口，ThreadPoolExecutor 是它的基础实现。
@@ -127,12 +138,6 @@ AsyncTask 内部有一个线程池，核心线程池大小是 `Math.max(2, Math.
 它内部只有一个核心线程，它确保所有任务都按顺序执行。
 超时时间是 0 秒。
 统一所有的外界任务到同一线程中，可以忽略线程同步问题。
-
-#### HandlerThread
-HandlerThread 继承自 Thread，封装了 Handler 与 Looper的逻辑。通过调用 `getThreadHandler()` 方法可以获得 Handler 并直接使用。
-
-#### IntentService
-IntentService 继承自 Service，封装了 HandlerThread 的逻辑。可以直接执行一些异步任务。
 
 #### JobScheduler
 但是它只在 Lollipop 以上的系统上可用，而且存在一个重大 bug，在 Marshmallow 之后才可以正常使用。

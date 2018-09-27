@@ -20,7 +20,7 @@
 - [BroadcastReceiver](docs/android/BroadcastReceiver.md)
 - [ContentProvider](docs/android/ContentProvider.md)
 - [Fragment](docs/android/Fragment.md)
-- [Window]
+- [Window](docs/android/Window.md)
 - [View](docs/android/View.md)
 - [Animation](docs/android/Animation.md)
 - [Process](docs/android/Process.md)
@@ -35,11 +35,8 @@
 - [Database]数据库
 - [Hotfix]热更新、增量更新
 - [Module & Plugin]插件化、模块化
-- [Memory](docs/android/Memory.md)
-- [ANR]
-- [Dalvik]
-- [ART]
-- [Improvement]性能优化
+- [Improvement](docs/android/Improvement.md)
+- [JVM](docs/android/JVM.md)
 - [Framework]架构与设计模式
 
 ### Network

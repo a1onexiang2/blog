@@ -6,7 +6,7 @@
 
 #### LayoutInflater
 通过 `Context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)` / `LayoutInflater.from(context)` 来获取。
-内部通过 XmlPullParser 来解析 xml 文件；并通过反射创建 View。
+内部通过 XmlPullParser 来解析 xml 文件，并通过反射创建 View。
 如果 root 参数不为空，attachToRoot 参数默认为 true，创建的 View 会被添加到 root 中。
 如果 root 为 null 或 attachToRoot 为 false 时，创建的 View 最外层的 layout_width 和 layout_height 会失效，因为没有添加到视图中。
 

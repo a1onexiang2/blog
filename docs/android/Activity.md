@@ -63,6 +63,14 @@ ApplicationContext 启动 standard/singleTop/singleTask Activity 会报错，因
 需要注意添加 `Intent.FLAG_ACTIVITY_NEW_TASK`。
 
 #### Activity 的启动过程？
+Launcher 通知 AMS 启动 App 的 MainActivity，也就是清单文件设置启动的 Activity。
+AMS 记录要启动的 Activity 信息，并且通知 Launcher 进入 pause 状态。
+Launcher 进入 pause 状态后，通知 AMS 已经 paused 了，可以启动了。
+app 未开启过，所以 AMS 启动新的进程，并且在新进程中创建 ActivityThread 对象，执行其中的 main 函数方法。
+app 主线程启动完毕后通知 AMS，并传入 applicationThread 以便通讯。
+AMS 通知绑定 Application 并启动 MainActivity。
+启动 MainActivitiy，并且创建和关联 Context, 最后调用 onCreate 方法。
+
 
 - 程序进程（客户端）
     Activity.startActivity()
