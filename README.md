@@ -11,8 +11,9 @@
 - [Design Patterns]
 - [Data Structure]
 - [Algorithm]
-- [GC](docs/java/GC.md)
 - [JVM]
+- [ClassLoader](docs/java/ClassLoader.md)
+- [GC](docs/java/GC.md)
 
 ## Android
 - [Activity](docs/android/Activity.md)
@@ -33,8 +34,9 @@
 - [ListView]
 - [VideoPlayer]
 - [Database]数据库
-- [Hotfix]热更新、增量更新
-- [Module & Plugin]插件化、模块化
+- [Hook](docs/android/Hook.md)
+- [ClassLoader](docs/android/ClassLoader.md)
+- [Plugin & Module](docs/android/PluginModule.md)
 - [Improvement](docs/android/Improvement.md)
 - [JVM](docs/android/JVM.md)
 - [Framework]架构与设计模式
