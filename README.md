@@ -8,7 +8,7 @@
 - [Reflection](docs/java/Reflection.md)
 - [Generic](docs/java/Generic.md)
 - [I/O](docs/java/IO.md)
-- [Design Patterns]
+- [Design Patterns](docs/java/DesignPatterns.md)
 - [Data Structure]
 - [Algorithm]
 - [JVM]
@@ -43,9 +43,8 @@
 
 ### Network
 - [TCP/IP]
-- [UDP]
 - [Socket]
-- [Http]
+- [Https](docs/network/Https.md)
 - [Mac]
 
 ### VCS

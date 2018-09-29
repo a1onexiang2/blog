@@ -10,6 +10,10 @@
 如果 root 参数不为空，attachToRoot 参数默认为 true，创建的 View 会被添加到 root 中。
 如果 root 为 null 或 attachToRoot 为 false 时，创建的 View 最外层的 layout_width 和 layout_height 会失效，因为没有添加到视图中。
 
+#### AsyncLayoutInflater
+AsyncLayoutInflater 是来帮助做异步加载 layout 的。
+默认情况下 `setContentView()` 函数是在 UI 线程执行的，其中有一系列的耗时动作：XML 的解析、View 的反射创建等过程同样是在 UI 线程执行的，AsyncLayoutInflater 把这些过程以异步的方式执行，保持 UI 线程的高响应。
+
 #### 绘制流程
 
 - **onMeasure(widthMeasureSpec, heightMeasureSpec)**
