@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Java
 
@@ -67,4 +67,4 @@ Java 有四种引用类型，分为强、弱、软、虚。
 虚引用 | 未知 | 跟踪 GC 活动 | 未知
 
 
-[Home](../../README.md)
+[Home](../../README)

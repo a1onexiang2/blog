@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -34,4 +34,4 @@ ART 支持了更多的调试功能，例如：
 - **Android 7.0 的改进**
 Android 7.0 的 ART 引入了全新的 Hybrid 模式（Interpreter + JIT + AOT）。App 在安装时不编译，安装速度快。在运行 App 时，先走解释器，然后热点函数会被识别并被 JIT 进行编译，存储在 JIT Code Cache 中，并产生 profile 文件记录热点函数信息。等手机进入 Charging 和 Idle 状态时，系统会每隔一段时间扫描 App 目录下 profile 文件并执行 AOT 编译（Google 官方称之为 profile-guided compilation）。App 安装速度快，占用存储少，但是前几次运行会较慢，只有用户操作的次数多了，运行速度才会跟上来。
 
-[Home](../../README.md)
+[Home](../../README)

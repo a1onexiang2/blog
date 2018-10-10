@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -62,7 +62,7 @@ Lock 是一个 Java 接口。
 `tryLock()` 方法可以尝试获取锁，并会返回获取锁的结果，如果失败直接返回 false，不会等待；
 `lockInterruptibly()` 方法可以尝试获取锁，如果获取锁失败会阻塞等待，被调用 `Thread.interrupt()` 时会中断等待锁状态并抛出 `InterruptedException`。
     - **ReentrantLock**
-    ReentrantLock 是唯一实现 Lock 的类。意思是“可重入锁”。
+    ReentrantLock 是唯一实现 Lock 的类。意思是 “可重入锁” 。
     - **ReadWriteLock**
     ReadWriteLock 也是一个 Java 接口。将读写操作分开，分成两个锁来分配给线程，使多线程可以同时进行读写操作。
     - **ReentrantReadWriteLock**
@@ -177,4 +177,4 @@ WorkManager 会根据你的设备情况，自动选用 JobScheduler, 或是 Alar
 WorkManager 组件库里提供了一个专门做周期性任务的类 PeriodicWorkRequest，最小的周期时间是 15 分钟。
 
 
-[Home](../../README.md)
+[Home](../../README)

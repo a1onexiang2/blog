@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Java
 
@@ -26,4 +26,4 @@ JVM 在判定两个 class 是否相同时，不仅要判断两个类名是否相
 JDK 已经在 `loadClass()` 方法中已经实现了 ClassLoader 搜索类的算法，当在 `loadClass()` 方法中搜索不到类时，`loadClass()` 方法会调用 `findClass()` 方法来搜索类，所以只需重写该方法即可。如没有特殊的要求，一般不建议重写 `loadClass()` 搜索类的算法。
 
 
-[Home](../../README.md)
+[Home](../../README)

@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -114,4 +114,4 @@ ApplicationContext 启动 standard/singleTop/singleTask Activity 会报错，因
         ActivityThread.handleStopActivity()
         ActivityThread.performStopActivityInner()
 
-[Home](../../README.md)
+[Home](../../README)

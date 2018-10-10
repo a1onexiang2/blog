@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Java
 
@@ -245,13 +245,19 @@
 - Client（客户端类）：使用代理模式的地方。
 例子：ActivityManagerProxy...
 
+#### 动态代理
+代理模式分为静态代理与动态代理。代理类在程序运行前不存在、运行时由程序动态生成的代理方式称为动态代理。实现动态代理包括三步：
+1. 新建委托类。
+2. 实现 InvocationHandler 接口，这是负责连接代理类和委托类的中间类必须实现的接口。
+3. 通过 Proxy 类的静态方法新建代理类对象。
+
 #### 组合模式
 ![](https://user-images.githubusercontent.com/8423120/46239574-c3c4cf00-c3cc-11e8-9497-39646706de3b.png)
 将对象组合成树形结构以表示 “部分 - 整体” 的层次结构，使得用户对单个对象和组合对象的使用具有一致性。
 组合模式有三个角色：
 - Component（抽象组件角色）：定义参加组合对象的共有方法和属性，可以定义一些默认的函数或属性。
-- Leaf（叶子节点）：叶子没有子节点，因此是组合树的最小构建单元。
-- Composite（树枝节点）：定义所有枝干节点的行为，存储子节点，实现相关操作。
+- Leaf（叶子结点）：叶子没有子结点，因此是组合树的最小构建单元。
+- Composite（树枝结点）：定义所有枝干结点的行为，存储子结点，实现相关操作。
 例子：ViewGroup、View...
 
 #### 适配器模式
@@ -300,4 +306,4 @@
 - ConcreteImplementorA、ConcreteImplementorB（具体实现化角色）：实现角色的具体行为。
 例子：AbsListView & ListAdapter...
 
-[Home](../../README.md)
+[Home](../../README)

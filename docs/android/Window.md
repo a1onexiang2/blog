@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -29,4 +29,4 @@ Activity 中 Window 创建过程：
 ![](https://user-images.githubusercontent.com/8423120/46188242-915a9980-c31a-11e8-8244-57ce3255c2e6.png)
 
 
-[Home](../../README.md)
+[Home](../../README)

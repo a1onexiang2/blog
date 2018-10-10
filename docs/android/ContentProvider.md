@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -14,4 +14,4 @@ ContentProvider 可以理解为一个 Android App 对外开放的接口。
 ContentProvider 使数据访问更安全、简单、高效。
 Android 7.0 以上安装 apk 文件使用了 FileProvider，在获取照相机拍摄图片时，在选择相册图片时等等。
 
-[Home](../../README.md)
+[Home](../../README)

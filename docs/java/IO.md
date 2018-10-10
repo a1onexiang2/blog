@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Java
 
@@ -19,5 +19,23 @@ I/O 模型可以从同步或异步、阻塞或非阻塞两个维度来分类。
 #### Java I/O
 ![image](https://user-images.githubusercontent.com/8423120/46002839-b0bab200-c0e1-11e8-8f61-814d9fa6a251.png)
 
+#### Okio
+Okio 补充了 java.io 和 java.nio 的内容，使得数据访问、存储和处理更加便捷。它的主要功能都被封装在 ByteString 和 Buffer 这两个类中，整个库也是围绕这两个类展开。
+- **ByteString**
+ByteString 代表一个 immutable 字节序列。对于字符数据来说，String 是非常基础的，但在二进制数据的处理中，则没有与之对应的存在，ByteString 应运而生。它提供了对串操作所需要的各种 API，例如子串、判等、查找等，也能把二进制数据编解码为十六进制（hex），base64 和 UTF-8 格式。
+- **Source、Sink**
+Okio 吸收了 java.io 一个非常优雅的设计：流（stream），流可以一层一层套起来，不断扩充能力，最终完成像加密和压缩这样复杂的操作。Okio 有自己的流类型，那就是 Source 和 Sink，它们和 InputStream 与 OutputStream 类似，前者为输入流，后者为输出流。
+但它们还有以下特性：
+    - 超时机制，所有的流都有超时机制。
+    - Source 和 Sink 的 API 非常简洁，为了应对更复杂的需求，Okio 还提供了 BufferedSource 和 BufferedSink 接口，便于使用（按照任意类型进行读写，BufferedSource 还能进行查找和判等）。
+    - 不再区分字节流和字符流，它们都是数据，可以按照任意类型去读写。
+    - 便于测试，Buffer 同时实现了 BufferedSource 和 BufferedSink 接口，便于测试。
 
-[Home](../../README.md)
+Source 和 InputStream 互相操作，可以把它们等同对待，同理 Sink 和 OutputStream 也可以等同对待。
+- **Buffer**
+Buffer 集 BufferedSource 和 BufferedSink 的功能于一身，提供了访问数据缓冲区所需要的一切 API。
+Buffer 是一个可变的字节序列，就像 ArrayList 一样。使用时只管从它的头部读取数据，往它的尾部写入数据，无需考虑容量、大小、位置等其他因素。
+![image](https://user-images.githubusercontent.com/8423120/46715501-d2e03280-cc92-11e8-9aca-ed7b1924f941.png)
+
+
+[Home](../../README)

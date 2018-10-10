@@ -1,11 +1,11 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
 ## Hook
 
 #### Xposed Installer
-在 Android 系统中 App 进程都是由 Zygote 进程“孵化”而来。Zygote 进程在启动时会创建一个虚拟机实例，每当它“孵化”一个新的应用程序进程时，都会将 JMV 复制到新的 App 进程里面去，从而使每个 App 进程都有一个独立的 JVM。
+在 Android 系统中 App 进程都是由 Zygote 进程 “孵化” 而来。Zygote 进程在启动时会创建一个虚拟机实例，每当它 “孵化” 一个新的应用程序进程时，都会将 JMV 复制到新的 App 进程里面去，从而使每个 App 进程都有一个独立的 JVM。
 Zygote 进程在启动的过程中，除了会创建一个 JVM 实例之外还会将 Java Rumtime 加载到进程中并注册一些 Android 核心类的 JNI（Java Native Interface）方法。一个 App 进程被 Zygote 进程孵化出来时，不仅会获得 Zygote 进程中的 JVM 实例拷贝，还会与 Zygote 进程一起共享 Java Rumtime，也就是可以将 XposedBridge.jar 这个 Jar 包加载到每一个 Android App 进程中去。安装 Xposed Installer 之后，系统 app_process 将被替换，然后利用 Java 的 Reflection 机制覆写内置方法，实现功能劫持。
 Xposed Installer 框架中真正起作用的是对方法的 Hook 和 Replace。在 Android 系统启动的时候，Zygote 进程加载 XposedBridge.jar，将所有需要替换的 Method 通过 JNI 方法 hookMethodNative 指向 Native 方法 xposedCallHandler，这个方法再通过调用 handleHookedMethod 这个 Java 方法来调用被劫持的方法转入 Hook 逻辑。
 ![](https://user-images.githubusercontent.com/8423120/46198997-64b97880-c340-11e8-8b8b-fa3df3164c24.png)
@@ -26,7 +26,7 @@ for (ApplicationInfo applicationInfo: applicationInfoList) {
 ```
 通常情况下使用 Xposed Installer 框架都会屏蔽对其的检测，即 Hook 掉 PackageManager 的 getInstalledApplications 方法的返回值，以便过滤掉 de.robv.android.xposed.installer 来躲避这种检测。
 2. 自造异常读取栈
-Xposed Installer 框架对每个由 Zygote 孵化的 App 进程都会介入，因此在程序方法异常栈中就会出现 Xposed 相关的 “身影”，我们可以通过自造异常 Catch 来读取异常堆栈的形式，用以检查其中是否存在 Xposed 的调用方法。
+Xposed Installer 框架对每个由 Zygote 孵化的 App 进程都会介入，因此在程序方法异常栈中就会出现 Xposed 相关的 “身影” ，我们可以通过自造异常 Catch 来读取异常堆栈的形式，用以检查其中是否存在 Xposed 的调用方法。
 ```java
 try {
     throw new Exception("blah");
@@ -86,6 +86,30 @@ void* lookup_symbol(char* libraryname,char* symbolname)
 }
 ```
 - **基于方法特征码检测**
-特征码即用来判断某段数据属于哪个计算机字段。在非 Root 环境下一般一个正常 App 在启动时候，系统会调度相关大小的内存、空间给 App 使用，此时 App 的运行环境内产生的数据、内存、存储等是独立于其它 App 的（即独立运行在沙箱中）。因为处于运行沙箱环境中的进程对沙箱的内存有最高读写权限，当我们的 App 进程被恶意模块附加或注入时，就可以通过对当前进程的 PID 所对应的 maps 中加载的模块进行合法校验。这里的模块校验我们可以采取对单个模块内容取样来判断是否为恶意模块，这种方式被定义为“基于方法的特征码检测”。
+特征码即用来判断某段数据属于哪个计算机字段。在非 Root 环境下一般一个正常 App 在启动时候，系统会调度相关大小的内存、空间给 App 使用，此时 App 的运行环境内产生的数据、内存、存储等是独立于其它 App 的（即独立运行在沙箱中）。因为处于运行沙箱环境中的进程对沙箱的内存有最高读写权限，当我们的 App 进程被恶意模块附加或注入时，就可以通过对当前进程的 PID 所对应的 maps 中加载的模块进行合法校验。这里的模块校验我们可以采取对单个模块内容取样来判断是否为恶意模块，这种方式被定义为 “基于方法的特征码检测” 。
 
-[Home](../../README.md)
+#### AOP
+AOP（Aspect Oriented Programming，面向切面编程）是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP 是 OOP（Object Oriented Programming，面向对象编程）的延续。
+利用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序可重用性，提高开发效率。
+
+#### AspectJ
+使用 AspectJ 前需要先了解一些基础知识点：
+- Advice（通知）
+注入到 class 文件中的代码。典型的 Advice 类型有 before、after 和 around，分别表示在目标方法执行之前、执行后和完全替代目标方法执行的代码。除了在方法中注入代码，也可能会对代码做其他修改，比如在一个 class 中增加字段或者接口。
+- Joint point（连接点）
+程序中可能作为代码注入目标的特定的点，例如一个方法调用或者方法入口。
+- Pointcut（切入点）
+告诉代码注入工具，在何处注入一段特定代码的表达式。例如，在哪些 joint points 应用一个特定的 Advice。切入点可以选择唯一一个，比如执行某一个方法，也可以有多个选择，比如，标记了一个定义成 @DebguTrace 的自定义注解的所有方法。
+- Aspect（切面）
+Pointcut 和 Advice 的组合看做切面。例如在应用中通过定义一个 pointcut 和给定恰当的 advice，添加一个日志切面。
+- Weaving（织入）
+注入代码（advices）到目标位置（joint points）的过程。
+
+AspectJ 是非侵入式监控，在编译时修改代码，直接修改 class 文件，可以在不修监控目标的情况下监控其运行，截获某类方法，甚至可以修改其参数和运行轨迹。
+![image](https://user-images.githubusercontent.com/8423120/46728162-c2d94a80-ccb4-11e8-89e5-ce947b98fe61.png)
+![image](https://user-images.githubusercontent.com/8423120/46728166-c7056800-ccb4-11e8-8a31-277179ce78d2.png)
+![image](https://user-images.githubusercontent.com/8423120/46728175-ca005880-ccb4-11e8-96e1-53eda6f4d821.png)
+![image](https://user-images.githubusercontent.com/8423120/46728185-ccfb4900-ccb4-11e8-90c2-bf06673b2837.png)
+![image](https://user-images.githubusercontent.com/8423120/46728191-cf5da300-ccb4-11e8-9503-9fda45220683.png)
+
+[Home](../../README)

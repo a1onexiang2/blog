@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Java
 
@@ -36,4 +36,4 @@ inline fun <reified T> Gson.fromJson(json: String): T{
 ```
 inline 和 reified 缺一不可。
 
-[Home](../../README.md)
+[Home](../../README)

@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 [Back to View](./View.md)
 
 # Android
@@ -52,4 +52,4 @@ Shader 有五个子类，分别是：BitmapShader、LinearGradient、RadialGradi
 构造方法为：`EmbossMaskFilter(float[] direction, float ambient, float specular, float blurRadius)`
 
 [Back to View](./View.md)
-[Home](../../README.md)
+[Home](../../README)

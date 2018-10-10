@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -30,4 +30,4 @@ ValueAnimator 只是动画计算管理驱动，没有设置对应的属性，需
 
 
 
-[Home](../../README.md)
+[Home](../../README)

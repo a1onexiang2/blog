@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -32,7 +32,7 @@ ContentProvider 是 Android 提供的专门用于不同应用间进行数据共�
 创建自定义的 ContentProvider 只需继承 ContentProvider 类并实现六个抽象方法：`onCreate()`、`query()`、`update()`、`insert()`、`delete() `和 `getType()`。`onCreate()` 代表 ContentProvider 的创建，`getType()` 用来返回一个 Uri 请求所对应的 MIME 类型（媒体类型），比如图片、视频等，如果应用不关注这个选项，可以直接在这个方法中返回 null 或者 `"/"`；剩下的四个方法对应于 CRUD 操作，即增删改查。这六个方法均运行在 ContentProvider 的进程中，除了 `onCreate()` 由系统回调并运行在主线程里，其他五个方法均由外界回调并运行在 Binder 线程池中。
 
 #### Socket
-Socket 也称“套接字”，它分为流式套接字和用户数据包套接字，分别对应于网络的传输控制层中的 TCP 和 UDP。TCP 协议是面向连接的协议，提供稳定的双向通信功能，TCP 本身提供了超时重传机制，因此具有很高的稳定性；而 UDP 是无连接的，提供不稳定的单向通信功能，当然 UDP 也可以实现双向通信功能。在性能上，UDP 具有更好的效率，其缺点是不保证数据一定能够正确传输，尤其是在网络拥塞的情况下。
+Socket 也称 “套接字” ，它分为流式套接字和用户数据包套接字，分别对应于网络的传输控制层中的 TCP 和 UDP。TCP 协议是面向连接的协议，提供稳定的双向通信功能，TCP 本身提供了超时重传机制，因此具有很高的稳定性；而 UDP 是无连接的，提供不稳定的单向通信功能，当然 UDP 也可以实现双向通信功能。在性能上，UDP 具有更好的效率，其缺点是不保证数据一定能够正确传输，尤其是在网络拥塞的情况下。
 实际上通过 Socket 不仅仅能实现进程间的通信，还可以实现设备间的通信，当然前提是这些设备之间的 IP 地址互相可见。
 
 #### Binder 连接池
@@ -40,7 +40,7 @@ Socket 也称“套接字”，它分为流式套接字和用户数据包套接�
 Binder 连接池的主要作用就是将每个业务模块的 Binder 请求统一转发到远程 Service 中执行，从而避免重复创建 Service 的过程。
 
 #### PendingIntent
-PendingIntent 不是跨进程通讯，它是 Android 提供的一种用于外部程序调起自身程序的能力，生命周期不与主程序相关，它的核心可以汇总成四个字“异步激发”。
+PendingIntent 不是跨进程通讯，它是 Android 提供的一种用于外部程序调起自身程序的能力，生命周期不与主程序相关，它的核心可以汇总成四个字 “异步激发” 。
 PendingIntent 是系统对于待处理数据的一个引用，称之为 token。当主程序被 Killed 时，token 还是会继续存在的，可以继续供其他进程使用。调用 `PendingIntent.cancel()` 方法才可以取消 PendingIntent。
 
-[Home](../../README.md)
+[Home](../../README)

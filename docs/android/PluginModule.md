@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -49,4 +49,4 @@ Module 中的资源文件需要添加统一前缀以防资源冲突。
 - **DEX 合并**
 这是 Android 热修复的思想。原生 APK 自带的 DEX 是通过 PathClassLoader 来加载的，而插件 DEX 则是通过 DexClassLoader 来加载的。但有一个顺序问题，如果宿主 DEX 和插件 DEX 都有一个相同命名空间的类的方法，那么先加载哪个 Dex，就会执行哪个 Dex 中的这个类的方法。
 
-[Home](../../README.md)
+[Home](../../README)

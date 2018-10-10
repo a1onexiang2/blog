@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Android
 
@@ -73,4 +73,4 @@ ContentProvider 主要用于不同应用间的数据共享，需要自己实现�
 #### 网络储存
 即数据储存于服务器端，通过网络通讯来获取。
 
-[Home](../../README.md)
+[Home](../../README)

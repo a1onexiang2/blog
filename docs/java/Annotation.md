@@ -1,4 +1,4 @@
-[Home](../../README.md)
+[Home](../../README)
 
 # Java
 
@@ -39,7 +39,7 @@ JavaSE 中内置三个标准 Annotation，定义在 java.lang 中：
 如果给一个非覆盖父类方法的方法添加该 Annotation，编译器将报编译错误。
 - **@Deprecated**
 `@Deprecated` 是一个标记型 Annotation，说明被修改的元素已被废弃并不推荐使用，编译器会在该元素上加一条横线以作提示。
-该修饰具有一定的“传递性”：如果我们通过继承的方式使用了这个弃用的元素，即使继承后的元素（类，成员或者方法）并未被标记为 `@Deprecated`，编译器仍然会给出提示。
+该修饰具有一定的 “传递性” ：如果我们通过继承的方式使用了这个弃用的元素，即使继承后的元素（类，成员或者方法）并未被标记为 `@Deprecated`，编译器仍然会给出提示。
 - **@SuppressWarnnings**
 `@SuppressWarnnings` 用于通知 Java 编译器关闭对特定类、方法、成员变量、变量初始化的警告。
 通常当这种情况发生时，我们需要查找引起警告的代码，如果它真的表示错误，我们就需要纠正它。
@@ -51,4 +51,4 @@ Annotation 的方法定义是受限制的。其方法必须声明为无参数、
 成员一般不能是泛型，只有当其类型是 Class 时可以使用泛型，因为此方法能够用类型转换将各种类型转换为 Class。
 Annotation 和 interface 都可以定义常量、静态成员类型。interface 可以被实现或者继承，Annotation 不可以。
 
-[Home](../../README.md)
+[Home](../../README)
