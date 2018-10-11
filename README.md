@@ -10,7 +10,7 @@
 - [I/O](docs/java/IO)
 - [Data Structure](docs/java/DataStructure)
 - [Design Patterns](docs/java/DesignPatterns)
-- [Algorithm]
+- [Algorithm](docs/java/Algorithm)
 - [JVM]
 - [ClassLoader](docs/java/ClassLoader)
 - [GC](docs/java/GC)
@@ -27,17 +27,18 @@
 - [Process](docs/android/Process)
 - [Thread](docs/android/Thread)
 - [Storage](docs/android/Storage)
+- [CollectionView](docs/android/CollectionView)
 - [ImageLoader](docs/android/ImageLoader)
 - [Network](docs/android/Network)
 - [RxJava](docs/android/RxJava)
-- [CollectionView](docs/android/CollectionView)
 - [VideoPlayer](docs/android/VideoPlayer)
 - [Database](docs/android/Database)
-- [Hook](docs/android/Hook)
 - [ClassLoader](docs/android/ClassLoader)
+- [JVM](docs/android/JVM)
+- [Hook](docs/android/Hook)
 - [Plugin & Module](docs/android/PluginModule)
 - [Improvement](docs/android/Improvement)
-- [JVM](docs/android/JVM)
+- [Architecture](docs/android/Architecture)
 - [Framework]架构
 
 ### Network
