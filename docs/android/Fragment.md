@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -27,4 +27,4 @@ Fragment 通讯
 
 DialogFragment、ViewPager、BottomNavigator、Single Activity App。
 
-[Home](../../README)
+[Home](../../README.md)

@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Java
 
@@ -69,4 +69,4 @@ StringBuilder 线程不安全，在单线程下效率更高。
 
 通过 char 逐个分析。
 
-[Home](../../README)
+[Home](../../README.md)

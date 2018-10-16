@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Java
 
@@ -51,4 +51,4 @@ Annotation 的方法定义是受限制的。其方法必须声明为无参数、
 成员一般不能是泛型，只有当其类型是 Class 时可以使用泛型，因为此方法能够用类型转换将各种类型转换为 Class。
 Annotation 和 interface 都可以定义常量、静态成员类型。interface 可以被实现或者继承，Annotation 不可以。
 
-[Home](../../README)
+[Home](../../README.md)

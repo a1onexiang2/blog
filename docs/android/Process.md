@@ -1,13 +1,23 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
 ## Process
-![](https://user-images.githubusercontent.com/8423120/46243045-f63cef00-c401-11e8-8e59-874294ed6299.png)
+进程按重要性可以分为五类：
+- 前台进程 (Foreground process)
+- 可见进程 (Visible process)
+- 服务进程 (Service process)
+- 后台进程 (Background process)
+- 空进程 (Empty process)
+
+Android 应用程序框架层创建的应用程序进程具有两个特点，一是进程的入口函数是 ActivityThread.main，二是进程天然支持 Binder 进程间通信机制；这两个特点都是在进程的初始化过程中实现的。
+AMS（ActivityMagagerService）启动进程是从其成员函数 `startProcessLocked()` 开始调用 `Process.start()` 方法开始的。具体流程如下：
+![image](https://user-images.githubusercontent.com/8423120/46992275-d7499700-d13b-11e8-96f4-2cdd8b1ee0d5.png)
+
 
 #### Binder
-![](https://user-images.githubusercontent.com/8423120/46243271-0bffe380-c405-11e8-8a30-2d4d58fc056c.png)
-![](https://user-images.githubusercontent.com/8423120/46243215-41f09800-c404-11e8-8fe6-862551b06dc7.png)
+![image](https://user-images.githubusercontent.com/8423120/46243271-0bffe380-c405-11e8-8a30-2d4d58fc056c.png)
+![image](https://user-images.githubusercontent.com/8423120/46243215-41f09800-c404-11e8-8fe6-862551b06dc7.png)
 
 #### Bundle
 四大组件中的三大组件（Activity、Service、BoardcastReceiver）都支持在 Intent 中传递 Bundle 数据的，Bundle 实现了 Parcelable 接口，可以方便地在不同的进程间传输。
@@ -43,4 +53,4 @@ Binder 连接池的主要作用就是将每个业务模块的 Binder 请求统�
 PendingIntent 不是跨进程通讯，它是 Android 提供的一种用于外部程序调起自身程序的能力，生命周期不与主程序相关，它的核心可以汇总成四个字 “异步激发” 。
 PendingIntent 是系统对于待处理数据的一个引用，称之为 token。当主程序被 Killed 时，token 还是会继续存在的，可以继续供其他进程使用。调用 `PendingIntent.cancel()` 方法才可以取消 PendingIntent。
 
-[Home](../../README)
+[Home](../../README.md)

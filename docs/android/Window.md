@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -7,11 +7,11 @@ Android 手机中所有的视图都是通过 Window 来呈现的，像常用的 
 Window 是一个抽象类，唯一的实现类是 PhoneWindow。PhoneWindow 包含成员变量 DecorView。
 
 #### Activity、Window、View 的关系
-![](https://user-images.githubusercontent.com/8423120/46188266-ae8f6800-c31a-11e8-8bae-8550862f8881.png)
+![image](https://user-images.githubusercontent.com/8423120/46188266-ae8f6800-c31a-11e8-8bae-8550862f8881.png)
 
 #### `setContentView()`
 `Activity.setContentView()` 实际上是调用 `PhoneWindow.setContentView()`。执行流程图如下：
-![](https://user-images.githubusercontent.com/8423120/46137177-afbd8800-c27b-11e8-93ee-5b11d975257b.png)
+![image](https://user-images.githubusercontent.com/8423120/46137177-afbd8800-c27b-11e8-93ee-5b11d975257b.png)
 
 #### Window 类型
 加窗口是通过 `WindowManagerGlobal.addView(View view, ViewGroup.LayoutParams params, Display display, Window parentWindow)` 来执行的。
@@ -22,11 +22,11 @@ Window 是分层的，每个 Window 都有对应的 z 轴，从 1 叠加到 2999
 在三类 Window 中，应用 Window 的层级范围是 1~99。子 Window 的层级范围是 1000~1999，系统 Window 的层级范围是 2000~2999，这些层级范围对应着 WindowManager.LayoutParams 的 type 参数。如果想要 Window 位于所有 Window 的最顶层，那么采用较大的层级即可。但是系统层级的使用是需要声明权限的。
 
 #### Window 创建过程
-![](https://user-images.githubusercontent.com/8423120/46188121-d205e300-c319-11e8-958b-bb39c2d12d01.png)
+![image](https://user-images.githubusercontent.com/8423120/46188121-d205e300-c319-11e8-958b-bb39c2d12d01.png)
 `onCreate()` Window 创建过程：
-![](https://user-images.githubusercontent.com/8423120/46188193-3fb20f00-c31a-11e8-9528-5c17adfdede0.png)
+![image](https://user-images.githubusercontent.com/8423120/46188193-3fb20f00-c31a-11e8-9528-5c17adfdede0.png)
 Activity 中 Window 创建过程：
-![](https://user-images.githubusercontent.com/8423120/46188242-915a9980-c31a-11e8-8244-57ce3255c2e6.png)
+![image](https://user-images.githubusercontent.com/8423120/46188242-915a9980-c31a-11e8-8244-57ce3255c2e6.png)
 
 
-[Home](../../README)
+[Home](../../README.md)

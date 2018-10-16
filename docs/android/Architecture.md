@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -41,4 +41,4 @@ PM 模式中创建了一个视图的抽象，叫做 Presentation Model，而视�
 ![image](https://user-images.githubusercontent.com/8423120/46780178-e00e2780-cd4d-11e8-9249-42fd476e8fb8.png)
 
 
-[Home](../../README)
+[Home](../../README.md)

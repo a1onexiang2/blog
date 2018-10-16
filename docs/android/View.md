@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -116,4 +116,4 @@ ValueAnimator 只是动画计算管理驱动，没有设置对应的属性，需
 - **Interpolators**
 插值器。
 
-[Home](../../README)
+[Home](../../README.md)

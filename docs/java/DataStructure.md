@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Java
 
@@ -59,4 +59,4 @@ Java 中哈希表的实现有 HashMap、HashTable、ConcurrentHashMap。HashTabl
 图是一种复杂的非线性结构。在图形结构中，节点之间的关系是任意的，图中任意两个数据元素之间都有可能相关。
 图可以根据自身特点分为无向图和有向图，无权图和有权图。
 
-[Home](../../README)
+[Home](../../README.md)

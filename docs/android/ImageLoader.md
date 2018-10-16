@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -33,4 +33,4 @@ API 类似 Glide。
 JPEG 可以在 native 进行 resize，避免了在缩小图片时的 OOM 风险。
 
 
-[Home](../../README)
+[Home](../../README.md)

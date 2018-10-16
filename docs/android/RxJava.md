@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -46,4 +46,4 @@ I/O 操作（读写文件、读写数据库、网络信息交互等）所使用�
 `zip()` 方法可以合并多个 Observable 的结果并一次性返回。
 
 
-[Home](../../README)
+[Home](../../README.md)

@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -26,4 +26,4 @@ ExoPlayer 支持动态的自适应流 HTTP (DASH) 和平滑流，支持任何目
 ijkplayer 是可以根据需要编译的解码器。在编译的时候通过 `ln -s module-default.sh module.sh` 选择要编译的解码器。
 支持倍速播放，分段播放。
 
-[Home](../../README)
+[Home](../../README.md)

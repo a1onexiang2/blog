@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Java
 
@@ -15,7 +15,7 @@
 
 #### 双亲委托模型（Parent Delegation Model）
 ClassLoader 使用双亲委托模型来搜索类，每个 ClassLoader 实例都有一个父类加载器的引用，虚拟机内置的类加载器（Bootstrap ClassLoader）本身没有父类加载器，但可以用作其它 ClassLoader 实例的的父类加载器。当一个 ClassLoader 实例需要加载某个类时，它会先把这个任务委托给它的父类加载器，整个过程由上至下，先由最顶层的类加载器 Bootstrap ClassLoader 试图加载，若没加载到，则把任务转交给 Extension ClassLoader 试图加载，如果也没加载到，则转交给 App ClassLoader 进行加载，如果它也没有加载得到的话，则返回给委托的发起者，由它到指定的文件系统或网络等 URL 中加载该类。如果它们都没有加载到这个类时，则抛出 ClassNotFoundException。否则将这个找到的类生成一个类的定义，并将它加载到内存当中，最后返回这个类在内存中的 Class 实例对象。
-![](https://user-images.githubusercontent.com/8423120/46191908-d20ede80-c32b-11e8-8686-456cd17289f5.png)
+![image](https://user-images.githubusercontent.com/8423120/46191908-d20ede80-c32b-11e8-8686-456cd17289f5.png)
 这样设计可以避免重复加载，并且相对更安全。
 
 #### 如何判断两个 class 是否相同
@@ -26,4 +26,4 @@ JVM 在判定两个 class 是否相同时，不仅要判断两个类名是否相
 JDK 已经在 `loadClass()` 方法中已经实现了 ClassLoader 搜索类的算法，当在 `loadClass()` 方法中搜索不到类时，`loadClass()` 方法会调用 `findClass()` 方法来搜索类，所以只需重写该方法即可。如没有特殊的要求，一般不建议重写 `loadClass()` 搜索类的算法。
 
 
-[Home](../../README)
+[Home](../../README.md)

@@ -1,6 +1,6 @@
-[Home](../../README)
+[Home](../../README.md)
 
-# Network
+# Standard
 
 ## Http
 HTTPS 由两部分组成：HTTP、SSL/TLS，即在 HTTP 上又加了一层处理加密信息的模块。使用 HTTPS 协议之后在网络上传输的数据是加密的密文，即便被拦截，没有密钥进行解密的话也就是一串乱码。端口号是 443。
@@ -52,7 +52,7 @@ Connection: keep-alive
 // 实体内容
 key1=value1&key2=value2
 ```
-![](https://user-images.githubusercontent.com/8423120/46252536-7ca60f00-c49c-11e8-8ded-658681d2254e.png)
+![image](https://user-images.githubusercontent.com/8423120/46252536-7ca60f00-c49c-11e8-8ded-658681d2254e.png)
 
 
 #### Response（响应信息）
@@ -69,10 +69,10 @@ Content-Length:112
 // 响应正文
 content...
 ```
-![](https://user-images.githubusercontent.com/8423120/46252537-8596e080-c49c-11e8-8721-70946390111e.png)
+![image](https://user-images.githubusercontent.com/8423120/46252537-8596e080-c49c-11e8-8721-70946390111e.png)
 
 #### Http 请求方法
-![](https://user-images.githubusercontent.com/8423120/46252516-26d16700-c49c-11e8-98d2-605c6654998e.png)
+![image](https://user-images.githubusercontent.com/8423120/46252516-26d16700-c49c-11e8-98d2-605c6654998e.png)
 
 #### Keep-Alive
 我们知道 HTTP 协议采用 “请求 - 应答” 模式，当使用普通模式，即非 Keep-Alive 模式时，每个请求/应答客户和服务器都要新建一个连接，完成之后立即断开连接（HTTP 协议为无连接的协议）；当使用 Keep-Alive 模式（又称持久连接、连接重用）时，Keep-Alive 功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive 功能避免了建立或者重新建立连接。
@@ -217,4 +217,4 @@ compress | 表明实体采用 Unix 的文件压缩程序
 deflate | 表明实体采用 zlib 的格式压缩的
 identity | 表明没有对实体进行编码，当没有 Content-Encoding 首部字段时默认采用此编码方式
 
-[Home](../../README)
+[Home](../../README.md)

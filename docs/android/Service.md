@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -19,8 +19,6 @@
 - 通过 AIDL
 
 #### 用过哪些系统 Service？
-
-![image](https://user-images.githubusercontent.com/8423120/46723755-2494b700-ccab-11e8-9c05-5cf52548b75a.png)
 - LAYOUT_INFLATER_SERVICE
 - CONNECTIVITY_SERVICE
 - VIBRATOR_SERVICE
@@ -52,4 +50,4 @@ Service 运行在主线程中，不能进行耗时操作，超过 20 秒会 ANR�
     - SDK 18 以下，直接在 `Service.startForeground()` 中传入空的 Notification 即可。
     - SDK 18 及以上，可以启动一个 ID 一样的 InnerService 并停止。
 
-[Home](../../README)
+[Home](../../README.md)

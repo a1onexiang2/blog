@@ -1,6 +1,6 @@
-[Home](../../README)
+[Home](../../README.md)
 
-# Network
+# Standard
 
 ## Https
 HTTPS 由两部分组成：HTTP、SSL/TLS，即在 HTTP 上又加了一层处理加密信息的模块。使用 HTTPS 协议之后在网络上传输的数据是加密的密文，即便被拦截，没有密钥进行解密的话也就是一串乱码。端口号是 443。
@@ -54,7 +54,7 @@ Connection: keep-alive
 // 实体内容
 key1=value1&key2=value2
 ```
-![](https://user-images.githubusercontent.com/8423120/46244331-efb57400-c40f-11e8-8f0f-37def2703329.png)
+![image](https://user-images.githubusercontent.com/8423120/46244331-efb57400-c40f-11e8-8f0f-37def2703329.png)
 
 #### Response（响应信息）
 获得的响应信息包括以下内容：
@@ -72,7 +72,7 @@ content...
 ```
 
 #### Http 请求方法
-![](https://user-images.githubusercontent.com/8423120/46252516-26d16700-c49c-11e8-98d2-605c6654998e.png)
+![image](https://user-images.githubusercontent.com/8423120/46252516-26d16700-c49c-11e8-98d2-605c6654998e.png)
 
 #### Keep-Alive
 我们知道 HTTP 协议采用 “请求 - 应答” 模式，当使用普通模式，即非 Keep-Alive 模式时，每个请求/应答客户和服务器都要新建一个连接，完成之后立即断开连接（HTTP 协议为无连接的协议）；当使用 Keep-Alive 模式（又称持久连接、连接重用）时，Keep-Alive 功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive 功能避免了建立或者重新建立连接。
@@ -100,7 +100,7 @@ SSL 为了解决三大风险设计：
 
 #### Https 通讯流程
 HTTPS 要使客户端与服务器端的通信过程得到安全保证，必须使用对称加密算法，但是协商对称加密算法的过程，需要使用非对称加密算法来保证安全，然而直接使用非对称加密的过程本身也不安全，会有中间人篡改公钥的可能性，所以客户端与服务器不直接使用公钥，而是使用数字证书签发机构（CA）颁发的证书来保证非对称加密过程本身的安全。这样通过这些机制协商出一个对称加密算法，就此双方使用该算法进行加密解密。从而解决了客户端与服务器端之间的通信安全问题。一次 Https 通讯的大致流程如下：
-![](https://user-images.githubusercontent.com/8423120/46243773-f93bdd80-c409-11e8-8a2b-6f863a5a24f3.png)
+![image](https://user-images.githubusercontent.com/8423120/46243773-f93bdd80-c409-11e8-8a2b-6f863a5a24f3.png)
 1. 客户端通过发送 Client Hello 报文开始 SSL 通信。报文中包含客户端支持的 SSL 的指定版本、加密组件（Cipher Suite）列表（所使用的加密算法及密钥长度等）。**注意：客户端还会附加一个随机数，这里记为 A。**
 2. 服务器可进行 SSL 通信时，会以 Server Hello 报文作为应答。和客户端一样，在报文中包含 SSL 版本以及加密组件。服务器的加密组件内容是从接收到的客户端加密组件内筛选出来的。**注意：这里服务器同样会附加一个随机数，发给客户端，这里记为 B。**
 3. 接着服务端将自己的公钥等信息发给 CA 申请证书并数字签名，CA 用自己的私钥进行加密，然后将其都发还给服务器，服务器再将其发给客户端。
@@ -111,4 +111,4 @@ HTTPS 要使客户端与服务器端的通信过程得到安全保证，必须�
 8. 服务器和客户端的 Finished 报文交换完毕之后，SSL 连接就算建立完成。当然，通信会受到 SSL 的保护。从此处开始进行应用层协议的通信，即发送 HTTP 请求。
 9. 接下来双方使用对称加密算法进行加密，用 hash secret 对 HTTP 报文做一次运算生成一个 MAC（相当于摘要），附在 HTTP 报文的后面，然后用 session-secret 加密所有数据（HTTP + MAC），然后发送。接收方则先用 session-secret 解密数据，然后得到 HTTP + MAC，再用相同的算法计算出自己的 MAC，如果两个 MAC 相等，证明数据没有被篡改。
 
-[Home](../../README)
+[Home](../../README.md)

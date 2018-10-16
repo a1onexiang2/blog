@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Java
 
@@ -38,4 +38,4 @@ Buffer 是一个可变的字节序列，就像 ArrayList 一样。使用时只�
 ![image](https://user-images.githubusercontent.com/8423120/46715501-d2e03280-cc92-11e8-9aca-ed7b1924f941.png)
 
 
-[Home](../../README)
+[Home](../../README.md)

@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -25,6 +25,6 @@ PathClassLoader、DexClassLoader 都继承自 BaseClassLoader，且大部分实�
 - **InMemoryDexClassLoader**
 Android8.0 新增的类加载器，继承自 BaseDexClassLoader，用于加载内存中的 dex 文件。
 
-![](https://user-images.githubusercontent.com/8423120/46193140-b6a5d280-c32f-11e8-9d85-618b14afb3eb.png)
+![image](https://user-images.githubusercontent.com/8423120/46193140-b6a5d280-c32f-11e8-9d85-618b14afb3eb.png)
 
-[Home](../../README)
+[Home](../../README.md)

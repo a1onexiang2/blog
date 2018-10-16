@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Java
 
@@ -24,4 +24,4 @@ Java 包含两种 Exception：Checked Exception 和 Runtime Exception。两者�
 Checked Exception 必须被显式地捕获或者传递，可以 throws 抛出给上层处理，或者通过 try/catch/finally 捕获。而 Runtime Exception 则可不必抛出或捕获。
 Checked Exception 继承自 `java.lang.Exception` 类，Runtime Exception 继承自 `java.lang.RuntimeException` 类。
 
-[Home](../../README)
+[Home](../../README.md)

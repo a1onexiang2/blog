@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -35,7 +35,7 @@ Interceptor 的顺序决定了功能，最后一个 Interceptor 一定是负责�
 HttpURLConnection、HttpsURLConnection 基于的 OkHttp 版本没有跟上主流版本，使用它们进行网络请求是有风险的。
 
 #### Retrofit
-Retrofit 使用了[**动态代理**](../java/DesignPatterns#动态代理)技术。主要的结构如下：
+Retrofit 使用了[**动态代理**](../java/DesignPatterns.md#动态代理)技术。主要的结构如下：
 ![image](https://user-images.githubusercontent.com/8423120/46720246-961c3780-cca2-11e8-80eb-a122319facd4.png)
 一个完整的网络请求执行流程如下：
 1. 通过 `Retrofit.Builder.build()` 方法来构建一个实例。
@@ -54,4 +54,4 @@ Retrofit 使用了[**动态代理**](../java/DesignPatterns#动态代理)技术�
 6. 对返回的 Call 对象进行了进一步封装，生成 Observable<Response>。
 
 
-[Home](../../README)
+[Home](../../README.md)

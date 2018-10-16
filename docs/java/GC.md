@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Java
 
@@ -7,7 +7,7 @@
 GC 机制主要完成 3 件事：确定哪些内存需要回收、确定什么时候需要执行 GC、如何执行 GC。
 
 #### 内存如何分配
-![](https://user-images.githubusercontent.com/8423120/46062354-25522700-c19c-11e8-8bbb-6324c61b00b3.png)
+![image](https://user-images.githubusercontent.com/8423120/46062354-25522700-c19c-11e8-8bbb-6324c61b00b3.png)
 - **程序计数器（Program Counter Register）**
 是一块较小的内存空间，用于指示当前线程所执行的字节码执行到了第几行，可以理解为是当前线程的行号指示器。字节码解释器在工作时，会通过改变这个计数器的值来取下一条语句指令。
 每个程序计数器只用来记录一个线程的行号，所以它是线程私有（一个线程就有一个程序计数器）的。
@@ -46,8 +46,8 @@ JVM 一般采用 GC Roots 方法，只要从任何一个 GC Roots 的对象可�
 
 #### 内存分配与 GC 机制
 这里所说的内存分配，主要指的是在堆上的分配。Java 内存分配和回收的机制概括的说，就是：分代分配，分代回收。对象将根据存活的时间被分为：年轻代、年老代、永久代（即方法区）。
-![](https://user-images.githubusercontent.com/8423120/46071566-e1b6e780-c1b2-11e8-86b3-74b92999e914.png)
-![](https://user-images.githubusercontent.com/8423120/46071568-e4194180-c1b2-11e8-963f-984d58f5f9fb.png)
+![image](https://user-images.githubusercontent.com/8423120/46071566-e1b6e780-c1b2-11e8-86b3-74b92999e914.png)
+![image](https://user-images.githubusercontent.com/8423120/46071568-e4194180-c1b2-11e8-963f-984d58f5f9fb.png)
 - **年轻代（Young Generation）**
 年轻代可以分为 3 个区域：Eden 区（用来表示内存首次分配的区域）和两个存活区（Survivor 0 、Survivor 1）。
 绝大多数刚创建的对象会被分配在 Eden 区，其中的大多数对象很快就会消亡。Eden 区是连续的内存空间，因此在其上分配内存极快。存活区至少一个是空的。
@@ -106,4 +106,4 @@ G1 垃圾回收器适用于堆内存很大的情况，他将堆内存分割成�
 2. Java 堆内存不足时，GC 会被调用。当应用线程创建新对象且内存空间不足时，JVM 就会强制地调用 GC 线程。若 GC 一次之后仍不能满足内存分配的要求，JVM 会再进行两次 GC 作进一步的尝试，若仍无法满足要求，JVM 将会抛出 OutOfMemoryError。
 3. 在编译过程中作为一种优化技术，Java 编译器能选择给实例赋 null 值，从而标记实例为可回收。
 
-[Home](../../README)
+[Home](../../README.md)

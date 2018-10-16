@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -47,4 +47,4 @@ BaseRecyclerViewAdapterHelper（简称 BRVAH）是一个对 RecyclerView.Adapter
 - **ItemAnimator**
 可以通过继承 SimpleItemAnimator 来实现简单的自定义动画。
 
-[Home](../../README)
+[Home](../../README.md)

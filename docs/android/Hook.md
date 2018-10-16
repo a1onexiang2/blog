@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -8,7 +8,7 @@
 在 Android 系统中 App 进程都是由 Zygote 进程 “孵化” 而来。Zygote 进程在启动时会创建一个虚拟机实例，每当它 “孵化” 一个新的应用程序进程时，都会将 JMV 复制到新的 App 进程里面去，从而使每个 App 进程都有一个独立的 JVM。
 Zygote 进程在启动的过程中，除了会创建一个 JVM 实例之外还会将 Java Rumtime 加载到进程中并注册一些 Android 核心类的 JNI（Java Native Interface）方法。一个 App 进程被 Zygote 进程孵化出来时，不仅会获得 Zygote 进程中的 JVM 实例拷贝，还会与 Zygote 进程一起共享 Java Rumtime，也就是可以将 XposedBridge.jar 这个 Jar 包加载到每一个 Android App 进程中去。安装 Xposed Installer 之后，系统 app_process 将被替换，然后利用 Java 的 Reflection 机制覆写内置方法，实现功能劫持。
 Xposed Installer 框架中真正起作用的是对方法的 Hook 和 Replace。在 Android 系统启动的时候，Zygote 进程加载 XposedBridge.jar，将所有需要替换的 Method 通过 JNI 方法 hookMethodNative 指向 Native 方法 xposedCallHandler，这个方法再通过调用 handleHookedMethod 这个 Java 方法来调用被劫持的方法转入 Hook 逻辑。
-![](https://user-images.githubusercontent.com/8423120/46198997-64b97880-c340-11e8-8b8b-fa3df3164c24.png)
+![image](https://user-images.githubusercontent.com/8423120/46198997-64b97880-c340-11e8-8b8b-fa3df3164c24.png)
 
 #### 检测 Xposed Installer
 在做 Android App 的安全防御中检测点众多，Xposed Installer 检测是必不可少的一环。对于 Xposed 框架的防御总体上分为两层：Java 层和 Native 层。
@@ -112,4 +112,4 @@ AspectJ 是非侵入式监控，在编译时修改代码，直接修改 class �
 ![image](https://user-images.githubusercontent.com/8423120/46728185-ccfb4900-ccb4-11e8-90c2-bf06673b2837.png)
 ![image](https://user-images.githubusercontent.com/8423120/46728191-cf5da300-ccb4-11e8-9503-9fda45220683.png)
 
-[Home](../../README)
+[Home](../../README.md)

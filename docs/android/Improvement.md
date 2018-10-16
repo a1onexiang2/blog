@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -50,7 +50,7 @@ Android 应用的进程都是从 Zygote 的进程 fork 出来的。Zygote 进程
 大多数 static 的数据被 mmapped 到一个进程中。这不仅仅使得同样的数据能够在进程间进行共享，而且使得它能够在需要的时候被 paged out。常见的 static 数据包括 Dalvik Code，app resources，so 文件等。
 大多数情况下，Android 通过显式的分配共享内存区域 (例如 ashmem 或者 gralloc) 来实现动态 RAM 区域能够在不同进程之间进行共享的机制。例如，Window Surface 在 App 与 Screen Compositor 之间使用共享的内存，Cursor Buffers 在 ContentProvider 与 Clients 之间共享内存。
 - **Android Runtime 内存划分**
-![](https://user-images.githubusercontent.com/8423120/46125448-b4724400-c25b-11e8-87e6-7701fcbdbf25.png)
+![image](https://user-images.githubusercontent.com/8423120/46125448-b4724400-c25b-11e8-87e6-7701fcbdbf25.png)
 - **Memory Leak**
 用动态存储分配函数动态开辟的空间，在使用完毕后未释放，结果导致一直占据该内存单元。直到程序结束。即所谓的内存泄漏。
 内存泄露就是系统回收不了那些分配出去但是又不使用的内存, 随着程序的运行, 可以使用的内存就会越来越少。以下情况可能会出现内存泄漏：
@@ -234,4 +234,4 @@ Android Studio 自带的 APK 分析工具。可以对整个 APK 的结构和空�
 - Nimbledroid
 NimbleDroid 是美国哥伦比亚大学的博士创业团队研发出来的分析 Android App 性能指标的系统。
 
-[Home](../../README)
+[Home](../../README.md)

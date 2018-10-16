@@ -1,4 +1,4 @@
-[Home](../../README)
+[Home](../../README.md)
 
 # Android
 
@@ -116,7 +116,7 @@ FutureTask 实现了 Runnable 和 Callable，既可以在 Thread 中使用，又
 FutureTask 弥补了 Thread 的不足，是一种可以取消的异步的计算任务，并且有三个状态：等待、运行和完成。完成包括所有计算以任意的方式结束，包括正常结束、取消和异常。
 
 #### Handler、Looper、Message、MessageQueue
-![](https://pic2.zhimg.com/80/28a5f0d87457d432727270313cfec3a9_hd.png)
+![image](https://pic2.zhimg.com/80/28a5f0d87457d432727270313cfec3a9_hd.png)
 Looper 是一个消息泵，不断地遍历 MessageQueue，从中读取 Message 并交给 Handler 处理。
 底层使用了管道的方式，发送消息时会向管道写入数据，管道会唤醒其它线程来处理消息。
 `new Handler()` 会直接在调用的线程建立 Handler。若要指定线程，需要传入指定线程的 Looper，通过 `Looper.myLooper()` 来获取。
@@ -177,4 +177,4 @@ WorkManager 会根据你的设备情况，自动选用 JobScheduler, 或是 Alar
 WorkManager 组件库里提供了一个专门做周期性任务的类 PeriodicWorkRequest，最小的周期时间是 15 分钟。
 
 
-[Home](../../README)
+[Home](../../README.md)
