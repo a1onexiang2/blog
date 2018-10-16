@@ -11,7 +11,7 @@
 - [Data Structure](docs/java/DataStructure.md)
 - [Design Patterns](docs/java/DesignPatterns.md)
 - [Algorithm](docs/java/Algorithm.md)
-- [JVM]
+- [JVM](docs/java/JVM.md)
 - [ClassLoader](docs/java/ClassLoader.md)
 - [GC](docs/java/GC.md)
 
