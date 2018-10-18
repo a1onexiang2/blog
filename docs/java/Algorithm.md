@@ -408,7 +408,6 @@ n 人过桥，只有一个灯，桥每次只能通过 2 个人。
 文字表述：
 问题：一个栈的输入是数列 A，假定输出是数列 B，如何判断 B 是否能通过入栈出栈操作从 A 转换而来。
 解答：假设原索引指 B 中的值在 A 中的索引位置，则对 B 的每一个值，其后所有原索引比他小的值，它们的原索引必须符合降序排序。
-
 数学表述：
 问题：若栈的输入是数列 A = {a<sub>1</sub>, a<sub>2</sub>, …,a<sub>n</sub>}，可以在任意时候执行任意次出栈，能否输出数列 B = {b<sub>1</sub>, b<sub>2</sub>, …,b<sub>n</sub>}，其中 b<sub>i</sub>(i=1, 2, …, n)∈A。
 解答：对于数列 B 中任意的 b<sub>i</sub>(i=1, 2, …, n-1) = a<sub>k</sub>，需要满足 {b<sub>i+1</sub> = a<sub>x<sub>1</sub></sub>, b<sub>i+2</sub> = a<sub>x<sub>2</sub></sub>,…, b<sub>n</sub> = a<sub>x<sub>n-i</sub></sub>} 中，对于所有的 x<sub>m</sub>\<x<sub>n</sub>\<k，m\>n。
