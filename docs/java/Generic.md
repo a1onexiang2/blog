@@ -24,9 +24,6 @@ public class StaticGenerator<T> {
 }
 ```
 
-#### 泛型上界
-可以在申明泛型时指定泛型上界，例如：Generic<T extends Object>。
-
 #### Kotlin 内联
 Java 中需要显示传入 Class<T> 来拿到泛型具体的 class 对象；Kotlin 可以通过内联函数实现
 ```kotlin
