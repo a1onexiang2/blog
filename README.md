@@ -4,7 +4,7 @@
 - [Object](docs/java/Object.md)
 - [Feature](docs/java/Feature.md)
 - [Annotation](docs/java/Annotation.md)
-- [Throwalbe](docs/java/Throwable.md)
+- [Throwable](docs/java/Throwable.md)
 - [Reflection](docs/java/Reflection.md)
 - [Generic](docs/java/Generic.md)
 - [I/O](docs/java/IO.md)
