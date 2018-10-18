@@ -9,7 +9,7 @@
 Java 中的 Array 不可扩容，在声明时需要直接定义长度。ArrayList、Vector 更符合宏观意义上数组的定义。它们底层都实现了 List 接口，异同如下：  
 
 属性 | ArrayList | Vector  
--- | -- | --
+-- | -- | --  
 是否线程安全 | 不安全 | 安全  
 持续序列化 | 支持 | 不支持  
 扩容方式 | new = raw * 3 / 2 + 1 | new = raw + (k > 0 ? k : raw)  
