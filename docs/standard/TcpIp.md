@@ -7,6 +7,7 @@ TCP/IP 是互联网相关的各类协议族的总称，比如：TCP，UDP，IP�
 
 #### OSI 参考模型、TCP/IP 参考模型
 OSI 参考模型全称是开放系统互连参考模型（Open System Interconnection Reference Model）。这一参考模型共分为七层：物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。
+
 OSI 中的层 | 功能 | TCP/IP 中的层
 -- | -- | -- | --
 7 应用层 | 文件传输，电子邮件，文件服务，虚拟终端 | 应用层

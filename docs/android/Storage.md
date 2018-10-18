@@ -14,6 +14,7 @@ External Storage 可能不可用，最典型的当设备作为 USB 存储被 mou
 - **内部存储**
 在设备内存中存储私有数据。
 默认情况下，保存到内部存储的文件是应用的私有文件，其他应用（和用户）不能访问这些文件。当应用被卸载时，这些文件也会被移除。
+
     调用方法 | 等价路径 | 是否跟随应用
     -- | -- | --
     `Environment.getRootDirectory()` | `/system` | 否
@@ -24,12 +25,14 @@ External Storage 可能不可用，最典型的当设备作为 USB 存储被 mou
     `Context.getDatabasePath("test")` | `/data/data/com.my.app/databases/test` | 是
     `Context.getDir("test", Context.MODE_PRIVATE)` | `/data/data/com.my.app/app_test` | 是
     `Context.getFilesDir()` | `/data/data/com.my.app/files` | 是
+
 - **外部存储**
 该存储可能是可移除的存储介质（例如 SD 卡）或内部（不可移除）存储。
 保存到外部存储的文件是全局可读取文件，而且，在计算机上启用 USB 大容量存储以传输文件后，可由用户修改这些文件。
 要使用外部存储，必须获取 READ_EXTERNAL_STORAGE 或 WRITE_EXTERNAL_STORAGE 系统权限。
 在使用外部存储之前，应始终调用 `Environment.getExternalStorageState()` 以检查介质是否可用。
 `Context.getExternalFilesDir()` 获取的路径是私有的。当应用被卸载时，此目录及其内容将被删除。系统扫描程序不会读取这些目录中的文件。
+
     调用方法 | 等价路径 | 是否跟随应用
     -- | -- | --
     `Environment.getDownloadCacheDirectory()` | `/cache` | 否
