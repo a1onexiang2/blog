@@ -42,11 +42,11 @@ Module 中的资源文件需要添加统一前缀以防资源冲突。
 
 #### 插件化
 插件化一般有三种技术方案：
-- **动态替换**
+- **动态替换\*\*\r\r
 也就是 Hook。可以在不同层次进行 Hook，从而动态替换也细分为若干小流派。可以直接在 Activity 里做 Hook，重写 getAsset 的几个方法，从而使用自己的 ResourceManager 和 AssetPath；也可以在更抽象的层面，也就是在 startActivity 方法的位置做 Hook，涉及的类包括 ActivityThread、Instrumentation 等；最高层次则是在 AMS 上做修改，也就是张勇的解决方案，这里需要修改的类非常多，AMS、PMS 等都需要改动。总之，在越抽象的层次上做 Hook，需要做的改动就越大，但是也更加灵活。
-- **静态代理**
+- **静态代理\*\*\r\r
 写一个 PluginActivity 继承自 Activity 基类，把 Activity 基类里面涉及生命周期的方法全都重写一遍，插件中的 Activity 是没有生命周期的，所以要让插件中的 Activity 都继承自 PluginActivity，这样就有生命周期了。
-- **DEX 合并**
+- **DEX 合并\*\*\r\r
 这是 Android 热修复的思想。原生 APK 自带的 DEX 是通过 PathClassLoader 来加载的，而插件 DEX 则是通过 DexClassLoader 来加载的。但有一个顺序问题，如果宿主 DEX 和插件 DEX 都有一个相同命名空间的类的方法，那么先加载哪个 Dex，就会执行哪个 Dex 中的这个类的方法。
 
 [Home](../../README.md)

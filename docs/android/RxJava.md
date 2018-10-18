@@ -18,15 +18,15 @@ Observer 是 RxJava 的观察者，它决定了事件触发时具体的行为。
 
 #### Scheduler
 RxJava 通过 Scheduler 来指定任务执行的线程。通过 `subscribeOn()` 指定 Observable 执行的线程，通过 `observeOn()` 指定 Observer 执行的线程。默认提供的 Scheduler 有：
-- **`Schedulers.immediate()`**
+- **`Schedulers.immediate()`\*\*\r\r
 直接在当前线程运行，相当于不指定线程。默认的 Scheduler。
-- **`Schedulers.newThread()`**
+- **`Schedulers.newThread()`\*\*\r\r
 启动一个常规的新线程并在其中运行。
-- **`Schedulers.io()`**
+- **`Schedulers.io()`\*\*\r\r
 I/O 操作（读写文件、读写数据库、网络信息交互等）所使用的 Scheduler，内部实现是是用一个无数量上限的线程池，可以重用空闲的线程，因此多数情况下 io() 比 newThread() 更有效率。不要把计算工作放在 io() 中，可以避免创建不必要的线程。
-- **`Schedulers.computation()`**
+- **`Schedulers.computation()`\*\*\r\r
 计算所使用的 Scheduler。这个计算指的是 CPU 密集型计算，即不会被 I/O 等操作限制性能的操作，例如图形的计算。这个 Scheduler 使用的固定的线程池，大小为 CPU 核数。不要把 I/O 操作放在 computation() 中，否则 I/O 操作的等待时间会浪费 CPU。
-- **`AndroidSchedulers.mainThread()`**
+- **`AndroidSchedulers.mainThread()`\*\*\r\r
 在 Android 主线程运行。
 
 #### map、flatMap、lift

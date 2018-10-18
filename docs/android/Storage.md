@@ -11,7 +11,7 @@ Android 内容存储主要有五种方式：文件存储、SharedPreferences、S
 后来部分手机开始将最初定义的 Internal Storage 分成 Internal 和 External 两部分。这样一来即使没有外置储存，手机也有 Internal 和 External 两块存储区域。当手机可以插入外置储存卡的时候，外置储存卡被称作 Physical External Storage。
 Internal Storage 永远可用 (Permanent)。
 External Storage 可能不可用，最典型的当设备作为 USB 存储被 mount 时不可用。
-- **内部存储**
+- **内部存储\*\*\r\r
 在设备内存中存储私有数据。
 默认情况下，保存到内部存储的文件是应用的私有文件，其他应用（和用户）不能访问这些文件。当应用被卸载时，这些文件也会被移除。
 
@@ -26,7 +26,7 @@ External Storage 可能不可用，最典型的当设备作为 USB 存储被 mou
     `Context.getDir("test", Context.MODE_PRIVATE)` | `/data/data/com.my.app/app_test` | 是
     `Context.getFilesDir()` | `/data/data/com.my.app/files` | 是
 
-- **外部存储**
+- **外部存储\*\*\r\r
 该存储可能是可移除的存储介质（例如 SD 卡）或内部（不可移除）存储。
 保存到外部存储的文件是全局可读取文件，而且，在计算机上启用 USB 大容量存储以传输文件后，可由用户修改这些文件。
 要使用外部存储，必须获取 READ_EXTERNAL_STORAGE 或 WRITE_EXTERNAL_STORAGE 系统权限。

@@ -16,7 +16,7 @@ MVC 架构模式的三个组成部分：Model、View 和 Controller 中最重要
 MVP 架构模式是 MVC 的一个变种，MVC 与 MVP 之间的区别其实并不明显，最大的区别是 Presenter 对 View 与 Model 之间进行了解耦，它们彼此都对对方一无所知，都通过 Presenter 进行通信。
 Presenter 可以理解为松散的控制器，其中包含了视图的 UI 业务逻辑，所有从视图发出的事件，都会通过代理给 Presenter 进行处理；同时，Presenter 也通过视图暴露的接口与其进行通信。
 目前常见的 MVP 架构模式其实都是下列架构的变种：
-- **被动视图（Passive View）**
+- **被动视图（Passive View）\*\*\r\r
 视图成为了完全被动的并且不再根据模型来更新视图本身的内容，也就是说，不同于 MVC 中的依赖关系；在被动视图中，视图层对于模型层没有任何的依赖：
 ![image](https://user-images.githubusercontent.com/8423120/46779659-5fe6c280-cd4b-11e8-8443-ada3ee83e4c8.png)
 因为视图层不依赖与其他任何层级也就最大化了视图层的可测试性，同时也将视图层和模型层进行了合理的分离，两者不再相互依赖。
@@ -27,7 +27,7 @@ Presenter 可以理解为松散的控制器，其中包含了视图的 UI 业务
     2. 被动的视图向外界暴露接口，当需要更新视图时 Presenter 通过视图暴露的接口更新视图的内容。
     3. Presenter 负责对模型进行操作和更新，在需要时取出其中存储的信息。
     4. 当模型层改变时，可以将改变的信息发送给观察者 Presenter。
-- **监督控制器（Supervising Controller）**
+- **监督控制器（Supervising Controller）\*\*\r\r
 监督控制器中，视图层接管了一部分视图逻辑，主要内容就是同步简单的视图和模型的状态；而监督控制器就需要负责响应用户的输入以及一部分更加复杂的视图、模型状态同步工作。
 监督控制器的通信方式：
 ![image](https://user-images.githubusercontent.com/8423120/46779799-fdda8d00-cd4b-11e8-8a63-dcb7785bb4b1.png)
