@@ -7,7 +7,7 @@
 #### 基础类型  
 
 Type | Size (bits) | Minimum | Maximum | Example  
--- | -- | -- | -- | --  
+-- | -- | -- | -- | --
 byte | 8 | -2<sup>7</sup> | 2<sup>7</sup> – 1 | byte b = 100;  
 short | 16 | -2<sup>15</sup> | 2<sup>15</sup>– 1 | short s = 30_000;  
 int | 32 | -2<sup>31</sup> | 2<sup>31</sup>– 1 | int i = 100_000_000;  
@@ -20,7 +20,7 @@ boolean | 1 | – | – | boolean b = true;
 #### 包装类  
 
 基本数据类型 | 包装类 | 包装类转基本类型 | 基本类型转包装类  
--- | -- | -- | --  
+-- | -- | -- | --
 byte | Byte | `Byte.valueOf(byte)` | `byteInstance.byteValue()`  
 short | Short | `Short.valueOf(short)` | `shortInstance.shortValue()`  
 int | Integer | `Integer.valueOf(int)` | `integerInstance.intValue()`  

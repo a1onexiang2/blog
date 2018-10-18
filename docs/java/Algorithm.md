@@ -9,7 +9,7 @@
 排序问题是最基础最简单的算法。  
 
 排序方法 | 时间复杂度（平均） | 时间复杂度（最坏） | 时间复杂度（最优） | 空间复杂度 | 稳定性<br>*若 a 在 b 前且 a=b，排序后 a 仍在 b 前则稳定，反之则不稳定。*  
--- | -- | -- | -- | -- | --  
+-- | -- | -- | -- | -- | --
 选择排序 | *O*(n<sup>2</sup>) | *O*(n<sup>2</sup>) | *O*(n<sup>2</sup>) | *O*(1) | 不稳定  
 插入排序 | *O*(n<sup>2</sup>) | *O*(n<sup>2</sup>) | *O*(n) | *O*(1) | 稳定  
 冒泡排序 | *O*(n<sup>2</sup>) | *O*(n<sup>2</sup>) | *O*(n) | *O*(1) | 稳定  
@@ -124,7 +124,7 @@
         while (i <= j) {  
             when {  
                 array[i] <= pivot -> i++  
-                array[j] >= pivot -> j--  
+                array[j] >= pivot -> j--
                 else -> array[i] = array[j].also { array[j] = array[i] }  
             }  
         }  
@@ -221,7 +221,7 @@
             while (countingArray[i] > 0) {  
                 array[resultIndex] = i + offset  
                 resultIndex++  
-                countingArray[i]--  
+                countingArray[i]--
             }  
         }  
         return array  

@@ -16,7 +16,7 @@ External Storage 可能不可用，最典型的当设备作为 USB 存储被 mou
 默认情况下，保存到内部存储的文件是应用的私有文件，其他应用（和用户）不能访问这些文件。当应用被卸载时，这些文件也会被移除。  
 
     调用方法 | 等价路径 | 是否跟随应用  
-    -- | -- | --  
+    -- | -- | --
     `Environment.getRootDirectory()` | `/system` | 否  
     `Environment.getDataDirectory()` | `/data` | 否  
     `Context.getPackageCodePath()` | `/data/app/com.my.app-1.apk` | 是  
@@ -34,7 +34,7 @@ External Storage 可能不可用，最典型的当设备作为 USB 存储被 mou
 `Context.getExternalFilesDir()` 获取的路径是私有的。当应用被卸载时，此目录及其内容将被删除。系统扫描程序不会读取这些目录中的文件。  
 
     调用方法 | 等价路径 | 是否跟随应用  
-    -- | -- | --  
+    -- | -- | --
     `Environment.getDownloadCacheDirectory()` | `/cache` | 否  
     `Environment.getExternalStorageDirectory()` | `/sdcard` | 否  
     `Environment.getExternalStoragePublicDirectory("test")` | `/sdcard/test` | 否  
