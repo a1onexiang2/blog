@@ -16,27 +16,27 @@ AsyncLayoutInflater 是来帮助做异步加载 layout 的。
 
 #### 绘制流程
 
-- **onMeasure(widthMeasureSpec, heightMeasureSpec)**
+- **onMeasure(widthMeasureSpec, heightMeasureSpec)**<br>
 `onMeasure()` 方法用于测量控件的大小。
 `ViewRootImpl.performTraversals()` 方法会调用不可复写的 `measure(widthMeasureSpec, heightMeasureSpec)` 方法来测量 View 大小，其中参数由父布局传递。并在其中调用 `onMeasure()` 方法。
 ViewGroup 实现了 `measureChildren()` 方法来调用每个 ChildView 的 `measure()` 方法。
-- **onLayout(changed, l, t, r, b)**
+- **onLayout(changed, l, t, r, b)**<br>
 `onLayout()` 方法决定控件所在的位置。
 `ViewRootImpl.performTraversals()` 方法会调用 `layout(l, t, r, b)` 方法来决定 View 所在的位置，并在其中调用 `onLayout()` 方法。
 View 的 `onLayout()` 方法是空实现，ViewGroup 的 `onLayout()` 方法是抽象的，需要调用每个 ChildView 的 `layout()` 方法。
-- **onDraw(canvas)**
+- **onDraw(canvas)**<br>
 `onDraw()` 方法绘制控件。
 `ViewRootImpl.performTraversals()` 方法会调用 `draw(canvas)` 方法来进行 View 的绘制。并在其中调用 `onDraw(canvas)` 方法。
 View 的 `onDraw()` 方法是空实现。
 
 #### `requestLayout()`、`invalidate()`、`postInvalidate()`
 
-- **requestLayout()**
+- **requestLayout()**<br>
 从 View 开始一路往上请求 `requestLayout()` 并最终至 `ViewRootImpl.requestLayout()`。
 对 View 重新进行测量、布局、绘制。
-- **invalidate()**
+- **invalidate()**<br>
 为 View 添加一个标记位后不断向父容器请求刷新，父容器通过计算得出自身需要重绘的区域并上报，直到传递至 ViewRootImpl，最终触发 `performTraversals()` 方法，进行开始 View 树重绘流程 (只绘制需要重绘的视图)。
-- **postInvalidate()**
+- **postInvalidate()**<br>
 与 `invalidate()` 类似，但是可以从非 UI 线程发起。
 
 如果 View 确定自身不再适合当前区域，例如 LayoutParams 发生改变，需要父布局对其进行重新测量、布局、绘制时，需要调用 `requestLayout()`。而 `invalidate()` 则是刷新当前 View，使当前 View 进行重绘，不会执行测量、布局流程，因此如果 View 只需要重绘而不需要测量，布局的时候，使用 `invalidate()` 方法比 `requestLayout()` 方法更高效。
@@ -48,20 +48,20 @@ View 的 `onDraw()` 方法是空实现。
 
 #### MotionEvent、事件分发机制、手势冲突
 
-- **MotionEvent**
+- **MotionEvent**<br>
 每当用户在屏幕上进行动作时，会生成一个与之对应的 MotionEvent。
 `getX()`、`getY()` 方法可以获取事件距离消费这个事件的控件相对位置。
 `getRawX()`、`getRawY()` 方法可以获取事件在屏幕中的绝对位置。
 ACTION_DOWN → ACTION_MOVE → ... → ACTION_MOVE → ACTION_UP/ACTION_CANCEL 形成一个事件流。
 关于多点触控，`getActionIndex()` 方法可以获取事件的 index，并通过 `getPointerId(index)` 来获取事件流 ID，同一个事件流的 ID 是相同的。
-- **事件分发机制**
+- **事件分发机制**<br>
 详细流程见下图
 ![image](http://gityuan.com/images/touch/touch1.jpg)
 不论 View 自身是否注册点击事件，只要 View 是可点击的就会消费事件。
 ViewGroup 和 ChildView 都注册了事件监听器时，由 ChildView 消费。
 一次触摸流程中产生事件应该被同一 View 消费，全部接收或者全部拒绝。只要接受 ACTION_DOWN 就意味着接受所有的事件，拒绝 ACTION_DOWN 则不会收到后续内容。
 事件被拦截时会触发 ACTION_CANCEL 事件，如果事件流中途被拦截，后续的事件也将被拦截。
-- **手势冲突**
+- **手势冲突**<br>
 基本全都可以通过事件分发机制解决。
 
 #### Canvas
@@ -94,26 +94,26 @@ public void computeScroll() {
 
 #### Animation
 主要有三种：View Animation、Drawable Animation、Property Animation。
-- **View Animation**
+- **View Animation**<br>
 补间动画，动画执行之后并没有改变 View 的真实布局属性。
-- **Drawable Animation**
+- **Drawable Animation**<br>
 帧动画，把一个个 Drawable 逐帧播放来表现动画。
-- **Property Animation**
+- **Property Animation**<br>
 属性动画，主要有 ObjectAnimator、ValueAnimator、TimeAnimator、AnimatorSet。
 
 #### Property Animation
-- **ValueAnimator**
+- **ValueAnimator**<br>
 ValueAnimator 只是动画计算管理驱动，没有设置对应的属性，需要设置 updateListener 并更新属性才回生效。
-- **ObjectAnimator**
+- **ObjectAnimator**<br>
 继承自 ValueAnimator，是比较常用的 Animator。
 使用 ObjectAnimator 需要目标对象指定的属性提供 getter、setter 方法。
-- **AnimatorSet**
+- **AnimatorSet**<br>
 动画集合，把多个动画组合成一个组合，并可设置动画的时序关系。
-- **PropertyValuesHolder**
+- **PropertyValuesHolder**<br>
 多属性动画同时工作管理类。需要同时修改多个属性时可以用到此类。
-- **Evaluators**
+- **Evaluators**<br>
 估值器。Evaluators 用于计算一个属性值。它们通过 Animator 提供的动画的起始和结束值去计算一个动画的属性值。
-- **Interpolators**
+- **Interpolators**<br>
 插值器。
 
 [Home](../../README.md)

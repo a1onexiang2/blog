@@ -44,14 +44,14 @@ SDK 工具中使用 HierarchyViewer 可以可视化展示布局结构，分析 V
 可以在手机上 `设置→开发者选项→GPU 呈现模式分析` 设置显示为条形图来查看 GPU 工作的具体情况。
 
 #### 内存优化
-- **共享内存\*\*\r\r
+- **共享内存**<br>
 Android 系统通过下面几种方式来实现共享内存：
 Android 应用的进程都是从 Zygote 的进程 fork 出来的。Zygote 进程在系统启动并且载入通用的 framework 的代码与资源之后开始启动。为了启动一个新的程序进程，系统会 fork Zygote 进程生成一个新的进程，然后在新的进程中加载并运行应用程序的代码。这使得大多数的 RAM pages 被用来分配给 framework 的代码，同时使得 RAM 资源能够在应用的所有进程之间进行共享。
 大多数 static 的数据被 mmapped 到一个进程中。这不仅仅使得同样的数据能够在进程间进行共享，而且使得它能够在需要的时候被 paged out。常见的 static 数据包括 Dalvik Code，app resources，so 文件等。
 大多数情况下，Android 通过显式的分配共享内存区域 (例如 ashmem 或者 gralloc) 来实现动态 RAM 区域能够在不同进程之间进行共享的机制。例如，Window Surface 在 App 与 Screen Compositor 之间使用共享的内存，Cursor Buffers 在 ContentProvider 与 Clients 之间共享内存。
-- **Android Runtime 内存划分\*\*\r\r
+- **Android Runtime 内存划分**<br>
 ![image](https://user-images.githubusercontent.com/8423120/46125448-b4724400-c25b-11e8-87e6-7701fcbdbf25.png)
-- **Memory Leak\*\*\r\r
+- **Memory Leak**<br>
 用动态存储分配函数动态开辟的空间，在使用完毕后未释放，结果导致一直占据该内存单元。直到程序结束。即所谓的内存泄漏。
 内存泄露就是系统回收不了那些分配出去但是又不使用的内存, 随着程序的运行, 可以使用的内存就会越来越少。以下情况可能会出现内存泄漏：
     1. 非静态内部类的静态实例
@@ -76,7 +76,7 @@ Android 应用的进程都是从 Zygote 的进程 fork 出来的。Zygote 进程
     Android Studio 自带分析器。
     - LeakCanary
     在应用中接入 LeakCanary，可以在发生内存泄漏的时候展现可视化报告。
-- **OOM（OutOfMemory）\*\*\r\r
+- **OOM（OutOfMemory）**<br>
 为了整个 Android 系统的内存控制需要，Android 系统为每一个应用程序都设置了一个硬性的 Dalvik Heap Size 最大限制阈值，这个阈值在不同的设备上会因为 RAM 大小不同而各有差异。如果你的应用占用内存空间已经接近这个阈值，此时再尝试分配内存的话，很容易引起OutOfMemoryError的错误。
 `ActivityManager.getMemoryClass()` 可以用来查询当前应用的 Heap Size 阈值，这个方法会返回一个整数，表明你的应用的 Heap Size 阈值是多少 Mb。
 要避免 OOM 的发生，可以从以下角度来优化应用：
@@ -143,28 +143,28 @@ Android 应用的进程都是从 Zygote 的进程 fork 出来的。Zygote 进程
     内存优化并不就是说程序占用的内存越少就越好，如果因为想要保持更低的内存占用，而频繁触发执行 GC 操作，在某种程度上反而会导致应用性能整体有所下降，这里需要综合考虑做一定的权衡。
 
 #### 卡顿检测方法
-- **StickMode\*\*\r\r
+- **StickMode**<br>
 StrictMode 类是 Android 的一个工具类，可以用来帮助开发者发现代码中的一些不规范的问题，以达到提升应用响应能力的目的。可以设置不同的线程检测策略、虚拟机检测策略。当违规操作发生时，可以根据自定义的策略记录下 Log 或者 Crash，以便于跟踪改善。
-- **TraceView\*\*\r\r
+- **TraceView**<br>
 TraceView 不仅能看出每个方法消耗的时间、发生次数，并且可以进行排序，直接从最耗时的方法开始处优化。
-- **AndroidPerformanceMonitor\*\*\r\r
+- **AndroidPerformanceMonitor**<br>
 AndroidPerformanceMonitor 是一个检测卡顿的开源库，前身是 BlockCanary，更前身是 LeakCanary。其使用与 LeakCanary 也比较相似，可以自主设置卡顿检测时间，检测到的卡顿以 Notification 展示。原理是利用了 Looper 中每个 Message 被分发前后的 Log。
-- **ANR-WatchDog\*\*\r\r
+- **ANR-WatchDog**<br>
 检测卡顿的第三方库。原理是开启一个线程持续循环不断的往主线程中发送 Runnable，然后在规定时间之后检测 Runnable 是否被执行。没有被执行的话说明主线程执行上一个 Message 超时，然后获取当前堆栈信息。
-- **Choreographer\*\*\r\r
+- **Choreographer**<br>
 Android 系统每隔 16ms 都会发出 VSYNC 信号，触发 UI 的绘制，通过监听回调，如果 16ms 没有回调的话就发生了卡顿。这种方式的原理也比较简单，但是可用性不高，只能测出界面绘制的卡顿。
 
 #### ANR
 ANR（Application Not Responding）指程序未响应。Android 系统中，AMS（ActivityManagerService）和 WMS（WindowManagerService）会检测 App 的响应时间，如果 App 在特定时间无法相应屏幕触摸或键盘输入时间，或者特定事件没有处理完毕，就会出现 ANR。
 ANR 的原理是在执行方法前发送一个延时的 ANR 任务，并在方法执行完时取消延时任务。若是方法未执行完，会执行延时任务触发 ANR。
 以下四个条件都可以造成 ANR 发生：
-- **InputDispatching Timeout\*\*\r\r
+- **InputDispatching Timeout**<br>
 5 秒内无法响应屏幕触摸事件或键盘输入事件。
-- **BroadcastQueue Timeout\*\*\r\r
+- **BroadcastQueue Timeout**<br>
 BroadcastReceiver 的 `onReceive()` 在 10 秒没有处理完成。
-- **Service Timeout\*\*\r\r
+- **Service Timeout**<br>
 ForegroundService 需要在 5 秒内执行 `startForeground()`，后台 Service 在 200 秒内没有完成任务。
-- **ContentProvider Timeout\*\*\r\r
+- **ContentProvider Timeout**<br>
 ContentProvider 的 publish 在 10 秒内没进行完。
 
 ANR 的 Log 信息保存在 `/data/anr/traces.txt` 中，每一次新的 ANR 发生，会把之前的 ANR 信息覆盖掉。从日志中可以得到信息：导致 ANR 的包名、类名、进程 PID、导致 ANR 的原因、系统中活跃进程的 CPU 占用率等。

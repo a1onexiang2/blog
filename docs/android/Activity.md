@@ -7,19 +7,19 @@
 #### Activity 的生命周期？
 
 `onCreate()` / `onRestart()` → `onStart()` → `onResume()` → `onPause()` → `onStop()` → `onDestroy()`
-- **onCreate()**
+- **onCreate()**<br>
 创建 Activity，可根据参数 savedInstanceState 恢复一些状态。
-- **onStart()**
+- **onStart()**<br>
 表示 Activity 可见。
-- **onResume()**
+- **onResume()**<br>
 表示 Activity 可见并获取焦点，可以与用户进行交互。
-- **onPause()**
+- **onPause()**<br>
 与 `onResume()` 对应，表示 Activity 失去焦点，用户无法交互。
-- **onStop()**
+- **onStop()**<br>
 与 `onStart()` 对应，表示 Activity 不再可见。
-- **onDestroy()**
+- **onDestroy()**<br>
 销毁 Activity。
-- **onRestart()**
+- **onRestart()**<br>
 表示 Activity 从不可见状态变成可见状态。
 
 #### Activity A 启动另一个 Activity B 会回调哪些方法？如果 Activity B 是透明的呢？如果启动的是一个 Dialog 呢？
@@ -45,13 +45,13 @@ Dialog 控件不会对 Activity 生命周期产生影响
 
 分为四种：standard，singleTop，singleTask，singleInstance。
 可以在 `AndroidManifest.xml` 中配置 Activity 中的 `android:launchMode` 属性。也可以调用 `Intent.addFlags(flag)` 来指定。
-- **standard**
+- **standard**<br>
 默认模式，每次启动开启一个新实例，处于启动它的任务栈中。
-- **singleTop**
+- **singleTop**<br>
 为栈顶复用模式，需要启动时已经有实例位于栈顶则不会创新新实例，回调 onNewIntent() 方法。
-- **singleTask**
+- **singleTask**<br>
 为栈内复用模式，需要启动时已经有实例位于栈内则不会创新新实例，回调 onNewIntent() 方法，并且清除任务栈内处于该 Activity 之上的 Activities。
-- **singleInstance**
+- **singleInstance**<br>
 为单实例模式，位于独立任务栈，有且只有该 Activity。
 `AndroidManifest.xml` 中配置 Activity 中的 `android:taskAffinity` 属性可以指定任务栈，默认任务栈为包名。
 ApplicationContext 启动 standard/singleTop/singleTask Activity 会报错，因为没有任务栈，Service、BoardcastReceiver 同理。

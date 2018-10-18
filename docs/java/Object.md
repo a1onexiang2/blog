@@ -50,7 +50,7 @@ StringBuilder 线程不安全，在单线程下效率更高。
 
 #### Serializable、Parcelable
 
-- **Serializable**
+- **Serializable**<br>
     - 空接口，不需要实现方法。
     - 定义全局唯一的 serialVersionUID。序列化时会把当前类的 serialVersionUID 写入到序列化文件中，当反序列化时需要 serialVersionUID 一致，否则会失败。
     - 不指定 serialVersionUID 时系统会自动生成，文件发生任何修改都会导致生成的 UID 不同。
@@ -59,7 +59,7 @@ StringBuilder 线程不安全，在单线程下效率更高。
     - 内部实现使用了反射，效率低下。
     - transient 标识的参数不会参与序列化、反序列化过程。
     - 反序列化后的对象是新创建的，与原对象内存地址不同。
-- **Parcelable**
+- **Parcelable**<br>
     - 需要实现 `writeToParcel()`、`createFromParcel()`、`describeContents()`、`CREATOR`。
     - 直接在内存（共享内存）上进行储存于读取。
     - 将变量进行分解存储。

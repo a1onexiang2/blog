@@ -6,11 +6,11 @@
 任何一个 Java 程序都是由若干个 class 文件组成的一个完整的 Java 程序，在程序运行时，需要将 class 文件加载到 JVM 中才可以使用，负责加载这些 class 文件的就是 Java 的类加载（ClassLoader）机制。
 
 #### Java 提供的 ClassLoader
-- **BootStrap ClassLoader\*\*\r\r
+- **BootStrap ClassLoader**<br>
 称为启动类加载器，是 Java 类加载层次中最顶层的类加载器，负责加载 JDK 中的核心类库，如：rt.jar、resources.jar、charsets.jar 等。Bootstrap ClassLoader 不继承自 ClassLoader，它不是一个普通的 Java 类，底层由 C++ 编写，已嵌入到了 JVM 内核中，当 JVM 启动时 Bootstrap ClassLoader 也随之启动，负责加载完核心类库后，并构造 Extension ClassLoader 和 App ClassLoader 类加载器。
-- **Extension ClassLoader\*\*\r\r
+- **Extension ClassLoader**<br>
 扩展类加载器，负责加载 Java 的扩展类库，默认加载 JAVA_HOME/jre/lib/ext / 目下的所有 jar。继承自 ClassLoader。
-- **App ClassLoader\*\*\r\r
+- **App ClassLoader**<br>
 系统类加载器，负责加载应用程序 classpath 目录下的所有 jar 和 class 文件。继承自 ClassLoader。
 
 #### 双亲委托模型（Parent Delegation Model）

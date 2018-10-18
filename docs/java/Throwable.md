@@ -10,9 +10,9 @@ Throwable 类是 Java 语言中所有错误或异常的超类。它的两个子�
 #### Error
 Error 类包括一些严重的程序不能处理的系统错误类，如内存溢出、虚拟机错误、栈溢出等。
 这类错误一般与虚拟机相关，对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和预防，遇到这样的错误，建议让程序终止。
-- **OutOfMemoryError\*\*\r\r
+- **OutOfMemoryError**<br>
 内存溢出，一般发生在内存不足的情况下。
-- **StackOverflowError\*\*\r\r
+- **StackOverflowError**<br>
 栈溢出，一般发生在无限循环或无限递归的情况下。
 
 #### Exception
