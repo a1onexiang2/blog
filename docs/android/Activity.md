@@ -65,7 +65,6 @@ ApplicationContext 启动 standard/singleTop/singleTask Activity 会报错，因
 #### Activity 的启动过程？  
 ![image](https://user-images.githubusercontent.com/8423120/47200256-fa787e80-d3a7-11e8-9dec-f57c017af707.png)  
 ![image](https://user-images.githubusercontent.com/8423120/46187062-56556780-c314-11e8-8d8e-9df010a0a6f4.png)  
-![image](https://user-images.githubusercontent.com/8423120/46188067-923efb80-c319-11e8-82ab-2161a4eaccda.png)  
 - 程序进程（客户端）  
     `Activity.startActivity()`  
     `Activity.startActivityForResult()`  
