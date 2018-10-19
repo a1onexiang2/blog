@@ -7,19 +7,19 @@
 #### Activity 的生命周期？  
 
 `onCreate()` / `onRestart()` → `onStart()` → `onResume()` → `onPause()` → `onStop()` → `onDestroy()`  
-- **onCreate()**  
+- **`onCreate()`**  
 创建 Activity，可根据参数 savedInstanceState 恢复一些状态。  
-- **onStart()**  
+- **`onStart()`**  
 表示 Activity 可见。  
-- **onResume()**  
+- **`onResume()`**  
 表示 Activity 可见并获取焦点，可以与用户进行交互。  
-- **onPause()**  
+- **`onPause()`**  
 与 `onResume()` 对应，表示 Activity 失去焦点，用户无法交互。  
-- **onStop()**  
+- **`onStop()`**  
 与 `onStart()` 对应，表示 Activity 不再可见。  
-- **onDestroy()**  
+- **`onDestroy()`**  
 销毁 Activity。  
-- **onRestart()**  
+- **`onRestart()`**  
 表示 Activity 从不可见状态变成可见状态。  
 
 #### Activity A 启动另一个 Activity B 会回调哪些方法？如果 Activity B 是透明的呢？如果启动的是一个 Dialog 呢？  
@@ -34,7 +34,7 @@ Dialog 控件不会对 Activity 生命周期产生影响
 
 非用户主动销毁情况下，会调用 `onSaveInstanceState()`，用于储存一些临时变量与控件状态。  
 `onSaveInstanceState()` 调用在 `onStop()` 前，与 `onPause()` 没有时序关系。  
-`onRestoreInstanceState()` 被调用的前提是的确发生了非正常销毁，并不与 onSaveInstanceState() 成对调用。  
+`onRestoreInstanceState()` 被调用的前提是的确发生了非正常销毁，并不与 `onSaveInstanceState()` 成对调用。  
 `onRestoreInstanceState()` 调用在 `onStart()` 之后，`onResume()` 之前。  
 
 #### 如何避免配置改变时 Activity 重建？  
@@ -63,55 +63,56 @@ ApplicationContext 启动 standard/singleTop/singleTask Activity 会报错，因
 需要注意添加 `Intent.FLAG_ACTIVITY_NEW_TASK`。  
 
 #### Activity 的启动过程？  
+![image](https://user-images.githubusercontent.com/8423120/47200256-fa787e80-d3a7-11e8-9dec-f57c017af707.png)  
 ![image](https://user-images.githubusercontent.com/8423120/46187062-56556780-c314-11e8-8d8e-9df010a0a6f4.png)  
 ![image](https://user-images.githubusercontent.com/8423120/46188067-923efb80-c319-11e8-82ab-2161a4eaccda.png)  
 - 程序进程（客户端）  
-    Activity.startActivity()  
-    Activity.startActivityForResult()  
-    ContextImpl.execStartActivity()  
-    Instrumentation.startActivity()  
-    ActivityManagerProxy.startActivity()  
+    `Activity.startActivity()`  
+    `Activity.startActivityForResult()`  
+    `ContextImpl.execStartActivity()`  
+    `Instrumentation.startActivity()`  
+    `ActivityManagerProxy.startActivity()`  
 - 系统进程（服务端）  
     1. 预启动  
-        ActivityManagerService.startActivity()  
-        ActivityStarter.startActivityMayWait()  
-        ActivityStarter.startActivityLocked()  
-        ActivityStarter.startActivityUncheckedLocked()，7.0 以上系统调用 ActivityStarter.startActivityUnchecked()  
-        ActivityStack.startActivityLocked()  
-        ActivityStack.resumeTopActivityLocked()  
+        `ActivityManagerService.startActivity()`  
+        `ActivityStarter.startActivityMayWait()`  
+        `ActivityStarter.startActivityLocked()`  
+        `ActivityStarter.startActivityUncheckedLocked()`，7.0 以上系统调用 `ActivityStarter.startActivityUnchecked()`  
+        `ActivityStack.startActivityLocked()`  
+        `ActivityStack.resumeTopActivityLocked()`  
     2. 暂停  
-        ActivityStack.startPausingLocked()  
-        ApplicationThreadProxy.schedulePauseActivity()  
-        ActivityThread.handlePauseActivity()  
-        ActivityThread.performPauseActivity()  
-        ActivityManagerProxy.activityPaused()  
-        completePausedLocked()  
+        `ActivityStack.startPausingLocked()`  
+        `ApplicationThreadProxy.schedulePauseActivity()`  
+        `ActivityThread.handlePauseActivity()`  
+        `ActivityThread.performPauseActivity()`  
+        `ActivityManagerProxy.activityPaused`()`  
+        completePausedLocked()`  
     3. 启动应用程序进程  
-        第二次进入 ActivityStack.resumeTopActivityLocked()  
-        ActivityStack.startSpecificActivityLocked()  
-        ActivityManagerService.startProcessLocked()  
-        Process.start()  
+        第二次进入 `ActivityStack.resumeTopActivityLocked()`  
+        `ActivityStack.startSpecificActivityLocked()`  
+        `ActivityManagerService.startProcessLocked()`  
+        `Process.start()`  
     4. 加载应用程序 Activity  
-        ActivityThread.main()  
-        ActivityThread.attach()  
-        ActivityManagerService.attachApplication()  
-        ActivityManagerService.attachApplicationLocked()  
-        ApplicationThread.bindApplication()  
-        ActivityStack.realStartActivityLocked()，7.0 以上系统调用 ActivityStack.attachApplicationLocked()  
-        ActivityThread.handleBindApplication()  
+        `ActivityThread.main()`  
+        `ActivityThread.attach()`  
+        `ActivityManagerService.attachApplication()`  
+        `ActivityManagerService.attachApplicationLocked()`  
+        `ApplicationThread.bindApplication()`  
+        `ActivityStack.realStartActivityLocked()`，7.0 以上系统调用 `ActivityStack.attachApplicationLocked()`  
+        `ActivityThread.handleBindApplication()`  
     5. 显示 Activity  
-        ApplicationThread.scheduleLaunchActivity()  
-        ActivityThread.handleLaunchActivity()  
-        ActivityThread.performLaunchActivity()  
-        ActivityThread.handleResumeActivity()  
-        ActivityThread.performResumeActivity()  
-        Activity.performResume()  
-        ActivityStack.completeResumeLocked()  
+        `ApplicationThread.scheduleLaunchActivity()`  
+        `ActivityThread.handleLaunchActivity()`  
+        `ActivityThread.performLaunchActivity()`  
+        `ActivityThread.handleResumeActivity()`  
+        `ActivityThread.performResumeActivity()`  
+        `Activity.performResume()`  
+        `ActivityStack.completeResumeLocked()`  
     6. Activity Idle 状态的处理  
     7. 停止源 Activity  
-        ActivityStack.stopActivityLocked()  
-        ApplicationThreadProxy.scheduleStopActivity()  
-        ActivityThread.handleStopActivity()  
-        ActivityThread.performStopActivityInner()  
+        `ActivityStack.stopActivityLocked()`  
+        `ApplicationThreadProxy.scheduleStopActivity()`  
+        `ActivityThread.handleStopActivity()`  
+        `ActivityThread.performStopActivityInner()`  
 
 [Home](../../README.md)  

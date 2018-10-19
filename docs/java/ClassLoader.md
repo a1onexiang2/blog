@@ -9,7 +9,7 @@
 - **BootStrap ClassLoader**  
 称为启动类加载器，是 Java 类加载层次中最顶层的类加载器，负责加载 JDK 中的核心类库，如：rt.jar、resources.jar、charsets.jar 等。Bootstrap ClassLoader 不继承自 ClassLoader，它不是一个普通的 Java 类，底层由 C++ 编写，已嵌入到了 JVM 内核中，当 JVM 启动时 Bootstrap ClassLoader 也随之启动，负责加载完核心类库后，并构造 Extension ClassLoader 和 App ClassLoader 类加载器。  
 - **Extension ClassLoader**  
-扩展类加载器，负责加载 Java 的扩展类库，默认加载 JAVA_HOME/jre/lib/ext / 目下的所有 jar。继承自 ClassLoader。  
+扩展类加载器，负责加载 Java 的扩展类库，默认加载 `JAVA_HOME/jre/lib/ext/` 目下的所有 jar。继承自 ClassLoader。  
 - **App ClassLoader**  
 系统类加载器，负责加载应用程序 classpath 目录下的所有 jar 和 class 文件。继承自 ClassLoader。  
 

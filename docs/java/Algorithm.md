@@ -410,7 +410,7 @@ n 人过桥，只有一个灯，桥每次只能通过 2 个人。
 解答：假设原索引指 B 中的值在 A 中的索引位置，则对 B 的每一个值，其后所有原索引比他小的值，它们的原索引必须符合降序排序。  
 数学表述：  
 问题：若栈的输入是数列 A = {a<sub>1</sub>, a<sub>2</sub>, …,a<sub>n</sub>}，可以在任意时候执行任意次出栈，能否输出数列 B = {b<sub>1</sub>, b<sub>2</sub>, …,b<sub>n</sub>}，其中 b<sub>i</sub>(i=1, 2, …, n)∈A。  
-解答：对于数列 B 中任意的 b<sub>i</sub>(i=1, 2, …, n-1) = a<sub>k</sub>，需要满足 {b<sub>i+1</sub> = a<sub>x<sub>1</sub></sub>, b<sub>i+2</sub> = a<sub>x<sub>2</sub></sub>,…, b<sub>n</sub> = a<sub>x<sub>n-i</sub></sub>} 中，对于所有的 x<sub>m</sub>\<x<sub>n</sub>\<k，m\>n。  
+解答：对于数列 B 中任意的 b<sub>i</sub>(i=1, 2, …, n-1) = a<sub>k</sub>，需要满足 {b<sub>i+1</sub> = a<sub>x<sub>1</sub></sub>, b<sub>i+2</sub> = a<sub>x<sub>2</sub></sub>,…, b<sub>n</sub> = a<sub>x<sub>n-i</sub></sub>} 中，对于数列 {x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub>n-i</sub>} 中，对于任意满足条件 x<sub>m</sub>\<x<sub>n</sub>\<k 的 m，n，m>n。  
 - **n 对括号有多少合法组合方式**  
 合法组合方式数与有几对括号相关，是一个卡塔兰数。  
 它的递推公式有两种表示形式，分别是：  
