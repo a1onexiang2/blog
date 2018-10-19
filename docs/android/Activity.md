@@ -85,8 +85,8 @@ ApplicationContext 启动 standard/singleTop/singleTask Activity 会报错，因
         `ApplicationThreadProxy.schedulePauseActivity()`  
         `ActivityThread.handlePauseActivity()`  
         `ActivityThread.performPauseActivity()`  
-        `ActivityManagerProxy.activityPaused`()`  
-        completePausedLocked()`  
+        `ActivityManagerProxy.activityPaused()`  
+        `completePausedLocked()`  
     3. 启动应用程序进程  
         第二次进入 `ActivityStack.resumeTopActivityLocked()`  
         `ActivityStack.startSpecificActivityLocked()`  
