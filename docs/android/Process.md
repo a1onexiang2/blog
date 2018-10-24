@@ -10,10 +10,9 @@
 - 后台进程 (Background process)  
 - 空进程 (Empty process)  
 
-Android 应用程序框架层创建的应用程序进程具有两个特点，一是进程的入口函数是 ActivityThread.main，二是进程天然支持 Binder 进程间通信机制；这两个特点都是在进程的初始化过程中实现的。  
+Android 应用程序框架层创建的应用程序进程具有两个特点，一是进程的入口函数是 `ActivityThread.main()`，二是进程都支持 Binder 进程间通信机制；这两个特点都是在进程的初始化过程中实现的。  
 AMS（ActivityMagagerService）启动进程是从其成员函数 `startProcessLocked()` 开始调用 `Process.start()` 方法开始的。具体流程如下：  
 ![image](https://user-images.githubusercontent.com/8423120/46992275-d7499700-d13b-11e8-96f4-2cdd8b1ee0d5.png)  
-
 
 #### Binder  
 ![image](https://user-images.githubusercontent.com/8423120/46243271-0bffe380-c405-11e8-8a30-2d4d58fc056c.png)  

@@ -7,13 +7,13 @@
 #### Fragment 的生命周期？  
 
 `onAttach()` → `onCreate()` → `onCreateView()` → `onActivityCreated()` → `onStart()` → `onResume()` → `onPause()` → `onStop()` → `onDestroyView()` → `onDestroy()` → `onDetach()`  
-- **onAttach()**  
+- **`onAttach()`**  
 表示 Fragment 与 Activity 建立关联  
-- **onCreateView()**  
+- **`onCreateView()`**  
 创建视图  
-- **onDestroyView()**  
+- **`onDestroyView()`**  
 销毁视图  
-- **onDetach()**  
+- **`onDetach()`**  
 表示 Fragment 与 Activity 解除关联  
 
 #### Fragment 与 Activity 关系？  

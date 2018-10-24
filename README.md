@@ -23,7 +23,6 @@
 - [Fragment](docs/android/Fragment.md)
 - [Window](docs/android/Window.md)
 - [View](docs/android/View.md)
-- [Animation](docs/android/Animation.md)
 - [Process](docs/android/Process.md)
 - [Thread](docs/android/Thread.md)
 - [Storage](docs/android/Storage.md)
