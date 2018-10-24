@@ -8,8 +8,8 @@
 Dalvik 是最早 Google 针对 Android 开发的虚拟机。  
 Dalvik 有以下特点：  
 - **JIT（Just In Time）**  
-在 android2.2 以上版本，Dalvik 如同其他大多数 JVM 一样采用了 JIT 来做及时翻译 (动态翻译)，将 DEX 或 ODEX 中并排的 Dalvik Code（即 smali 指令集）运行态翻译成 native code 去执行。  
-JIT 的引入使得 Dalvik 提升了 3~6 倍的性能。  
+在 android 2.2 以上版本，Dalvik 如同其他大多数 JVM 一样采用了 JIT 来做及时翻译 (动态翻译)，将 DEX 或 ODEX 中并排的 Dalvik Code（即 smali 指令集）运行态翻译成 native code 去执行。  
+JIT 的引入使得 Dalvik 提升了 3 ~ 6 倍的性能。  
 - **GC 机制**  
 Dalvik 在触发 GC 机制时，会挂起整个程序与虚拟机内部的所有线程来查找活动对象，这样目的是在较少的堆栈里找到所引用的对象。这个回收动作是和应用程序同时执行（非并发）。这么做的好处是，在挂起整个程序后 GC 势必是相当快速的。但如果频繁出现 GC 并且内存吃紧时，会导致卡顿、掉帧、操作不流畅等。  
 - **标记-清除（Mark and Sweep）**  

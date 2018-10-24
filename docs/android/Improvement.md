@@ -33,6 +33,7 @@
     merge 可以用来合并布局，减少布局的层级。merge 多用于替换顶层 FrameLayout 或者 include 布局时, 用于消除因为引用布局导致的多余嵌套。  
 4. 利用 ViewStub  
     ViewStub 可以延迟 View 的加载，避免一些次要的 View 争抢资源。  
+
 可以利用下列工具来进行检查：  
 - 调试 GPU 过度绘制  
 可以在手机上 `设置→开发者选项→调试 GPU 过度绘制→显示过度绘制区域` 打开显示过度绘制区域选项。  
@@ -47,12 +48,12 @@ SDK 工具中使用 HierarchyViewer 可以可视化展示布局结构，分析 V
 - **共享内存**  
 Android 系统通过下面几种方式来实现共享内存：  
 Android 应用的进程都是从 Zygote 的进程 fork 出来的。Zygote 进程在系统启动并且载入通用的 framework 的代码与资源之后开始启动。为了启动一个新的程序进程，系统会 fork Zygote 进程生成一个新的进程，然后在新的进程中加载并运行应用程序的代码。这使得大多数的 RAM pages 被用来分配给 framework 的代码，同时使得 RAM 资源能够在应用的所有进程之间进行共享。  
-大多数 static 的数据被 mmapped 到一个进程中。这不仅仅使得同样的数据能够在进程间进行共享，而且使得它能够在需要的时候被 paged out。常见的 static 数据包括 Dalvik Code，app resources，so 文件等。  
+大多数 static 的数据被 mapped 到一个进程中。这不仅仅使得同样的数据能够在进程间进行共享，而且使得它能够在需要的时候被 paged out。常见的 static 数据包括 Dalvik Code、App Resources、SO 文件等。  
 大多数情况下，Android 通过显式的分配共享内存区域 (例如 ashmem 或者 gralloc) 来实现动态 RAM 区域能够在不同进程之间进行共享的机制。例如，Window Surface 在 App 与 Screen Compositor 之间使用共享的内存，Cursor Buffers 在 ContentProvider 与 Clients 之间共享内存。  
 - **Android Runtime 内存划分**  
 ![image](https://user-images.githubusercontent.com/8423120/46125448-b4724400-c25b-11e8-87e6-7701fcbdbf25.png)  
 - **Memory Leak**  
-用动态存储分配函数动态开辟的空间，在使用完毕后未释放，结果导致一直占据该内存单元。直到程序结束。即所谓的内存泄漏。  
+内存泄漏指：用动态存储分配函数动态开辟的空间，在使用完毕后未释放，结果导致一直占据该内存单元至进程结束。  
 内存泄露就是系统回收不了那些分配出去但是又不使用的内存, 随着程序的运行, 可以使用的内存就会越来越少。以下情况可能会出现内存泄漏：  
     1. 非静态内部类的静态实例  
         非静态内部类会维持一个外部类实例的引用，如果非静态内部类的实例是静态的，就会间接长期维持着外部类的引用，阻止被回收掉。如果需要使用内部类，可以使用静态内部类或使用 WeakReference 保持弱引用。  
@@ -77,7 +78,7 @@ Android 应用的进程都是从 Zygote 的进程 fork 出来的。Zygote 进程
     - LeakCanary  
     在应用中接入 LeakCanary，可以在发生内存泄漏的时候展现可视化报告。  
 - **OOM（OutOfMemory）**  
-为了整个 Android 系统的内存控制需要，Android 系统为每一个应用程序都设置了一个硬性的 Dalvik Heap Size 最大限制阈值，这个阈值在不同的设备上会因为 RAM 大小不同而各有差异。如果你的应用占用内存空间已经接近这个阈值，此时再尝试分配内存的话，很容易引起OutOfMemoryError的错误。  
+为了整个 Android 系统的内存控制需要，Android 系统为每一个应用程序都设置了一个硬性的 Dalvik Heap Size 最大限制阈值，这个阈值在不同的设备上会因为 RAM 大小不同而各有差异。如果你的应用占用内存空间已经接近这个阈值，此时再尝试分配内存的话，很容易引起 OutOfMemoryError 的错误。  
 `ActivityManager.getMemoryClass()` 可以用来查询当前应用的 Heap Size 阈值，这个方法会返回一个整数，表明你的应用的 Heap Size 阈值是多少 Mb。  
 要避免 OOM 的发生，可以从以下角度来优化应用：  
     1. 减小对象的内存占用  
@@ -190,6 +191,7 @@ ANR 的 Log 信息保存在 `/data/anr/traces.txt` 中，每一次新的 ANR 发
     根据网络状态对网络请求进行区别对待。例如：在 Wi-Fi 场景下可以进行数据的预取、一些统计的集中上传等；而在 2G 场景下此类操作以及网络请求的次数策略都应该调低。  
 9. 增量数据  
     根据实际情况采用接口返回增量数据，由客户端合并的策略，减少传输的数据量。  
+
 可以使用以下工具检测网络：  
 - Network Monitor  
 Android Studio 自带的网络分析器。可以查看网络请求的数量、频率、分布和速度。  
@@ -228,6 +230,7 @@ APK 文件过大会影响用户下载的倾向。可以从以下几个方面进�
 14. 插件化  
     一部分使用频率低下的模块可以使用插件化动态按需加载。  
 *Google Play 新增（2018/09/20）了动态打包功能，在 Google Play 上上传的 APK 文件会根据用户的设备，只打包适合的 Drawable 文件夹和 SO 文件。*  
+
 可以使用以下工具分析 APK 文件：  
 - Analyze APK  
 Android Studio 自带的 APK 分析工具。可以对整个 APK 的结构和空间占用比例有直观的了解。  
