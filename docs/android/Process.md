@@ -4,11 +4,11 @@
 
 ## Process  
 进程按重要性可以分为五类：  
-- 前台进程 (Foreground process)  
-- 可见进程 (Visible process)  
-- 服务进程 (Service process)  
-- 后台进程 (Background process)  
-- 空进程 (Empty process)  
+- 前台进程（Foreground process）  
+- 可见进程（Visible process）  
+- 服务进程（Service process）  
+- 后台进程（Background process）  
+- 空进程（Empty process）  
 
 Android 应用程序框架层创建的应用程序进程具有两个特点，一是进程的入口函数是 `ActivityThread.main()`，二是进程都支持 Binder 进程间通信机制；这两个特点都是在进程的初始化过程中实现的。  
 AMS（ActivityMagagerService）启动进程是从其成员函数 `startProcessLocked()` 开始调用 `Process.start()` 方法开始的。具体流程如下：  
@@ -20,7 +20,7 @@ AMS（ActivityMagagerService）启动进程是从其成员函数 `startProcessLo
 
 #### Bundle  
 四大组件中的三大组件（Activity、Service、BoardcastReceiver）都支持在 Intent 中传递 Bundle 数据的，Bundle 实现了 Parcelable 接口，可以方便地在不同的进程间传输。  
-在一个进程中启动了另一个进程的组件，可以在 Bundle 中附加需要传输的信息并通过 Intent 发送。其中传输的数据必须是能够被序列化的，比如基本类型，实现了 Parcelable 接口的对象、实现了 Serializable 接口的对象以及一些 Android 支持的特殊对象。  
+在一个进程中启动了另一个进程的组件，可以在 Bundle 中附加需要传输的信息并通过 Intent 发送。其中传输的数据必须是能够被序列化的，比如基本类型、实现了 Parcelable 接口的对象、实现了 Serializable 接口的对象以及一些 Android 支持的特殊对象。  
 Bundle 方式只支持单方面的传输数据，不支持互相通讯。  
 
 #### 文件共享  

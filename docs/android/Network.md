@@ -9,7 +9,7 @@
 - **Call**  
 OkHttpClient 实现了 Call.Factory，负责根据请求创建新的 Call（RealCall）类。发起一个请求会经历以下步骤：  
     1. 在每次执行前，会先检查这个 Call 是否已经被执行了，每个 Call 只能被执行一次，如果需要一个一样的 Call，可以调用 `Call.clone()` 方法克隆。  
-    2. 检查通过之后会调用 `client.dispatcher().executed(this)` 来进行实际执行，dispatcher 是 OkHttpClient.Builder 的成员之一，它是 HTTP 请求的执行策略。  
+    2. 检查通过之后会调用 `client.dispatcher().execute(this)` 来进行实际执行，dispatcher 是 OkHttpClient.Builder 的成员之一，它是 HTTP 请求的执行策略。  
     3. 调用 `getResponseWithInterceptorChain()` 函数获取 HTTP 返回结果。  
     4. 通知 dispatcher 自己已经执行完毕。  
 - **Interceptor**  
@@ -21,7 +21,7 @@ Interceptor 分别为：
     4. 负责读取缓存直接返回、更新缓存的 CacheInterceptor。  
     5. 负责和服务器建立连接的 ConnectInterceptor。  
     6. 配置 OkHttpClient 时设置的 networkInterceptors。  
-    7. f负责向服务器发送请求数据、从服务器读取响应数据的 CallServerInterceptor。  
+    7. 负责向服务器发送请求数据、从服务器读取响应数据的 CallServerInterceptor。  
 
 Interceptor 的顺序决定了功能，最后一个 Interceptor 一定是负责和服务器实际通讯的，重定向、缓存等一定是在实际通讯之前的。  
 - **Response**  

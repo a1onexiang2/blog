@@ -48,7 +48,7 @@ SDK 工具中使用 HierarchyViewer 可以可视化展示布局结构，分析 V
 - **共享内存**  
 Android 系统通过下面几种方式来实现共享内存：  
 Android 应用的进程都是从 Zygote 的进程 fork 出来的。Zygote 进程在系统启动并且载入通用的 framework 的代码与资源之后开始启动。为了启动一个新的程序进程，系统会 fork Zygote 进程生成一个新的进程，然后在新的进程中加载并运行应用程序的代码。这使得大多数的 RAM pages 被用来分配给 framework 的代码，同时使得 RAM 资源能够在应用的所有进程之间进行共享。  
-大多数 static 的数据被 mapped 到一个进程中。这不仅仅使得同样的数据能够在进程间进行共享，而且使得它能够在需要的时候被 paged out。常见的 static 数据包括 Dalvik Code、App Resources、SO 文件等。  
+大多数 static 的数据被 mmapped 到一个进程中。这不仅仅使得同样的数据能够在进程间进行共享，而且使得它能够在需要的时候被 paged out。常见的 static 数据包括 Dalvik Code、App Resources、SO 文件等。  
 大多数情况下，Android 通过显式的分配共享内存区域 (例如 ashmem 或者 gralloc) 来实现动态 RAM 区域能够在不同进程之间进行共享的机制。例如，Window Surface 在 App 与 Screen Compositor 之间使用共享的内存，Cursor Buffers 在 ContentProvider 与 Clients 之间共享内存。  
 - **Android Runtime 内存划分**  
 ![image](https://user-images.githubusercontent.com/8423120/46125448-b4724400-c25b-11e8-87e6-7701fcbdbf25.png)  
