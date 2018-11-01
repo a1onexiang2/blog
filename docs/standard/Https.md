@@ -29,3 +29,4 @@ HTTPS 要使客户端与服务器端的通信过程得到安全保证，必须�
 9. 接下来双方使用对称加密算法进行加密，用 hash secret 对 HTTP 报文做一次运算生成一个 MAC（相当于摘要），附在 HTTP 报文的后面，然后用 session-secret 加密所有数据（HTTP + MAC），然后发送。接收方则先用 session-secret 解密数据，然后得到 HTTP + MAC，再用相同的算法计算出自己的 MAC，如果两个 MAC 相等，证明数据没有被篡改。  
 
 [Home](../../README.md)   
+5175 4650 

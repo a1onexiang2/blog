@@ -38,6 +38,7 @@
 - [Plugin & Module](docs/android/PluginModule.md)
 - [Improvement](docs/android/Improvement.md)
 - [Architecture](docs/android/Architecture.md)
+- [Signature](docs/android/Signature.md)
 - [NDK](docs/android/NDK.md)
 - [Framework](docs/android/Framework.md)
 
