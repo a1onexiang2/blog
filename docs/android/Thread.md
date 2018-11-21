@@ -166,7 +166,7 @@ IntentService 继承自 Service，封装了 HandlerThread 的逻辑。可以直�
 统一所有的外界任务到同一线程中，可以忽略线程同步问题。  
 
 #### JobScheduler  
-但是它只在 Lollipop 以上的系统上可用，而且存在一个重大 bug，在 Marshmallow 之后才可以正常使用。  
+在 Lollipop 以上的系统上可用，而且存在一个重大 bug，在 Marshmallow 之后才可以正常使用。  
 JobScheduler 依赖于 Google Play Service。  
 可以尝试使用 JobIntentService，它在 Oreo 之前的版本会使用 Service，在 Oreo 之后的版本会使用 JobScheduler。  
 JobScheduler 首先会调度一个任务，然后在合适的时机（比如说延迟若干时间之后，或者等手机空闲了）系统会开启你的 MyJobService，然后执行 `onStartJob()` 里的处理逻辑。  
